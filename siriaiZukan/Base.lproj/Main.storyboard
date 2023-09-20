@@ -16,24 +16,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CommunityEditViewController" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KjG-jt-HUT">
-                                <rect key="frame" x="82" y="410.66666666666669" width="229" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JfK-32-8jr">
+                                <rect key="frame" x="96.666666666666686" y="120" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="tds-M1-xHy"/>
+                                    <constraint firstAttribute="width" constant="200" id="xvn-Y1-yEt"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="あなたが所属しているCommunity を入力してみよう!!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qpe-Zp-BLv">
+                                <rect key="frame" x="58.333333333333343" y="404" width="276.66666666666663" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgJ-5X-TSQ">
+                                <rect key="frame" x="96.666666666666686" y="478" width="200" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="NBX-He-8tJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="TAM-0Y-iXK"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Register">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerTapped" destination="ATd-eX-POP" eventType="touchUpInside" id="d8Y-Xb-YFd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qh4-eM-BTi">
+                                <rect key="frame" x="96" y="120" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="アイコンを設定しよう。">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
+                                    <color key="baseForegroundColor" systemColor="tintColor"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="iconButtonTapped" destination="ATd-eX-POP" eventType="touchUpInside" id="HVO-qB-dmL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="isi-0j-E95"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KjG-jt-HUT" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="Jh2-o4-ftm"/>
-                            <constraint firstItem="KjG-jt-HUT" firstAttribute="centerY" secondItem="URA-P7-aN3" secondAttribute="centerY" id="UuK-JY-1qK"/>
+                            <constraint firstItem="JfK-32-8jr" firstAttribute="top" secondItem="isi-0j-E95" secondAttribute="top" constant="120" id="TB0-VL-jsp"/>
+                            <constraint firstItem="JfK-32-8jr" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="Va5-Ze-2Fz"/>
+                            <constraint firstItem="bgJ-5X-TSQ" firstAttribute="top" secondItem="Qpe-Zp-BLv" secondAttribute="bottom" constant="40" id="WBg-tZ-CjV"/>
+                            <constraint firstItem="Qpe-Zp-BLv" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="Xsv-JG-TUY"/>
+                            <constraint firstItem="Qpe-Zp-BLv" firstAttribute="centerY" secondItem="URA-P7-aN3" secondAttribute="centerY" id="n9i-6S-bP3"/>
+                            <constraint firstItem="bgJ-5X-TSQ" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="sP9-1C-c3f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="captureButton" destination="Qh4-eM-BTi" id="6yc-gX-wUC"/>
+                        <outlet property="iconImage" destination="JfK-32-8jr" id="Q3d-Yq-6xb"/>
+                        <outlet property="nameTextField" destination="Qpe-Zp-BLv" id="FuF-LF-xac"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rgt-xo-bdI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-295" y="536"/>
+            <point key="canvasLocation" x="-295.41984732824426" y="535.91549295774655"/>
         </scene>
         <!--Community-->
         <scene sceneID="tne-QT-ifu">
@@ -119,8 +172,17 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

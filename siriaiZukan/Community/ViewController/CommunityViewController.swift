@@ -14,10 +14,11 @@ class CommunityViewController: UIViewController {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communityCell")
         tableView.dataSource = self
+        tableView.delegate   = self
     }
 }
 
-extension CommunityViewController: UITableViewDataSource {
+extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
     }
@@ -26,5 +27,9 @@ extension CommunityViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "communityCell", for: indexPath) as! CommunityTableViewCell
         cell.setInfo(name: "Life is Tech!", image: UIImage(systemName: "person.fill")!)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "toMemberView", sender: nil)
     }
 }

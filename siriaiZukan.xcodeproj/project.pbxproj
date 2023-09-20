@@ -19,6 +19,11 @@
 		109B02AF2ABAAC0400E6E8AE /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 109B02AD2ABAAC0400E6E8AE /* CommunityTableViewCell.xib */; };
 		109B02B32ABAACBD00E6E8AE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 109B02B22ABAACBD00E6E8AE /* Realm */; };
 		109B02B52ABAACBD00E6E8AE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 109B02B42ABAACBD00E6E8AE /* RealmSwift */; };
+		109B02BB2ABB0C5900E6E8AE /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02BA2ABB0C5900E6E8AE /* RealmRepository.swift */; };
+		109B02BF2ABB0DE300E6E8AE /* RealmModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02BE2ABB0DE300E6E8AE /* RealmModelProtocol.swift */; };
+		109B02C52ABB112100E6E8AE /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C42ABB112100E6E8AE /* CommunityViewModel.swift */; };
+		109B02C72ABB121B00E6E8AE /* CommunityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C62ABB121B00E6E8AE /* CommunityModel.swift */; };
+		109B02C92ABB197300E6E8AE /* ImageResistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C82ABB197300E6E8AE /* ImageResistry.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		109B02A82ABAAAFC00E6E8AE /* CommunityEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityEditViewController.swift; sourceTree = "<group>"; };
 		109B02AC2ABAAC0400E6E8AE /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		109B02AD2ABAAC0400E6E8AE /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
+		109B02BA2ABB0C5900E6E8AE /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		109B02BE2ABB0DE300E6E8AE /* RealmModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModelProtocol.swift; sourceTree = "<group>"; };
+		109B02C42ABB112100E6E8AE /* CommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewModel.swift; sourceTree = "<group>"; };
+		109B02C62ABB121B00E6E8AE /* CommunityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModel.swift; sourceTree = "<group>"; };
+		109B02C82ABB197300E6E8AE /* ImageResistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResistry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +80,7 @@
 			children = (
 				109B02902ABAA98100E6E8AE /* AppDelegate.swift */,
 				109B02922ABAA98100E6E8AE /* SceneDelegate.swift */,
+				109B02B82ABB0C1900E6E8AE /* General */,
 				109B02A52ABAAA1E00E6E8AE /* Member */,
 				109B02A42ABAAA0D00E6E8AE /* Community */,
 				109B02962ABAA98100E6E8AE /* Main.storyboard */,
@@ -86,6 +97,7 @@
 				109B02B62ABAB08300E6E8AE /* Model */,
 				109B02B02ABAAC0900E6E8AE /* TableViewCell */,
 				109B02AA2ABAAB7200E6E8AE /* ViewController */,
+				109B02C42ABB112100E6E8AE /* CommunityViewModel.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -128,6 +140,7 @@
 		109B02B62ABAB08300E6E8AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				109B02C62ABB121B00E6E8AE /* CommunityModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +148,24 @@
 		109B02B72ABAB09900E6E8AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		109B02B82ABB0C1900E6E8AE /* General */ = {
+			isa = PBXGroup;
+			children = (
+				109B02B92ABB0C2200E6E8AE /* Model */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		109B02B92ABB0C2200E6E8AE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				109B02BA2ABB0C5900E6E8AE /* RealmRepository.swift */,
+				109B02BE2ABB0DE300E6E8AE /* RealmModelProtocol.swift */,
+				109B02C82ABB197300E6E8AE /* ImageResistry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,10 +251,15 @@
 			files = (
 				109B02A72ABAAA7800E6E8AE /* MemberViewController.swift in Sources */,
 				109B02952ABAA98100E6E8AE /* CommunityViewController.swift in Sources */,
+				109B02C92ABB197300E6E8AE /* ImageResistry.swift in Sources */,
 				109B02912ABAA98100E6E8AE /* AppDelegate.swift in Sources */,
+				109B02C52ABB112100E6E8AE /* CommunityViewModel.swift in Sources */,
 				109B02AE2ABAAC0400E6E8AE /* CommunityTableViewCell.swift in Sources */,
+				109B02BB2ABB0C5900E6E8AE /* RealmRepository.swift in Sources */,
 				109B02932ABAA98100E6E8AE /* SceneDelegate.swift in Sources */,
+				109B02C72ABB121B00E6E8AE /* CommunityModel.swift in Sources */,
 				109B02A92ABAAAFC00E6E8AE /* CommunityEditViewController.swift in Sources */,
+				109B02BF2ABB0DE300E6E8AE /* RealmModelProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

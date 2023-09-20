@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "F74D1B48-D264-499E-A91D-34B340B39245"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "80DEFB98-0B8A-4A00-9768-B0CDBA69A229"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "siriaiZukan/Community/ViewController/CommunityViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "80DEFB98-0B8A-4A00-9768-B0CDBA69A229 - c872fbf04a7794bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "siriaiZukan.CommunityViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "siriaiZukan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/urassh/Library/CloudStorage/GoogleDrive-shuto.1011@icloud.com/%E3%83%9E%E3%82%A4%E3%83%88%E3%82%99%E3%83%A9%E3%82%A4%E3%83%95%E3%82%99/LifeisTech/LA/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/Project/siriaiZukan/siriaiZukan/Community/ViewController/CommunityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "80DEFB98-0B8A-4A00-9768-B0CDBA69A229 - c872fbf04a77949e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "siriaiZukan.CommunityViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "siriaiZukan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/urassh/Library/CloudStorage/GoogleDrive-shuto.1011@icloud.com/%E3%83%9E%E3%82%A4%E3%83%88%E3%82%99%E3%83%A9%E3%82%A4%E3%83%95%E3%82%99/LifeisTech/LA/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/Project/siriaiZukan/siriaiZukan/Community/ViewController/CommunityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "392">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC4D1A3E-DB6C-4AD3-AABE-965E80E94314"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "siriaiZukan/Community/TableViewCell/CommunityTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "setInfo(name:image:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88A072F3-DA27-4939-B4B4-2DCD3A8CFAAE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "siriaiZukan/Community/TableViewCell/CommunityTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "setInfo(name:image:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "82C9AD25-B6BC-4CB1-ABAD-D84C04B7D048"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "siriaiZukan/Community/TableViewCell/CommunityTableViewCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "setInfo(name:image:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DD198312-DF3A-4605-A160-F7B510FD2D96"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "siriaiZukan/Community/ViewController/CommunityViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5C531700-709D-4B9A-84B0-8CB500C78232"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "siriaiZukan/Community/ViewController/CommunityViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F83F107C-8A65-4FE6-8FA5-156F34D1C8E3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "siriaiZukan/Community/ViewController/CommunityViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "92766693-9322-4DB7-AB1A-11F064979A0E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "siriaiZukan/Community/ViewController/CommunityViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "CommunityViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "92766693-9322-4DB7-AB1A-11F064979A0E - d2b8ceb9294b057f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "siriaiZukan.CommunityViewController.communityTableView.getter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "siriaiZukan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/urassh/Library/CloudStorage/GoogleDrive-shuto.1011@icloud.com/%E3%83%9E%E3%82%A4%E3%83%88%E3%82%99%E3%83%A9%E3%82%A4%E3%83%95%E3%82%99/LifeisTech/LA/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/Project/siriaiZukan/siriaiZukan/Community/ViewController/CommunityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "92766693-9322-4DB7-AB1A-11F064979A0E - 8de4fbf25384e96b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "siriaiZukan.CommunityViewController.communityTableView.setter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "siriaiZukan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/urassh/Library/CloudStorage/GoogleDrive-shuto.1011@icloud.com/%E3%83%9E%E3%82%A4%E3%83%88%E3%82%99%E3%83%A9%E3%82%A4%E3%83%95%E3%82%99/LifeisTech/LA/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/Project/siriaiZukan/siriaiZukan/Community/ViewController/CommunityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "92766693-9322-4DB7-AB1A-11F064979A0E - 3fde8e782196ae7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "siriaiZukan.CommunityViewController.communityTableView.modify : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "siriaiZukan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/urassh/Library/CloudStorage/GoogleDrive-shuto.1011@icloud.com/%E3%83%9E%E3%82%A4%E3%83%88%E3%82%99%E3%83%A9%E3%82%A4%E3%83%95%E3%82%99/LifeisTech/LA/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/Project/siriaiZukan/siriaiZukan/Community/ViewController/CommunityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "92766693-9322-4DB7-AB1A-11F064979A0E - aad0973ecb557748"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "siriaiZukan.CommunityViewController.communityTableView.modify : Swift.Optional&lt;__C.UITableView&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "siriaiZukan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/urassh/Library/CloudStorage/GoogleDrive-shuto.1011@icloud.com/%E3%83%9E%E3%82%A4%E3%83%88%E3%82%99%E3%83%A9%E3%82%A4%E3%83%95%E3%82%99/LifeisTech/LA/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/Project/siriaiZukan/siriaiZukan/Community/ViewController/CommunityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "92766693-9322-4DB7-AB1A-11F064979A0E - 8f0fed9d29e5a107"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "siriaiZukan.CommunityViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; siriaiZukan.CommunityViewController"
+                  moduleName = "siriaiZukan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/urassh/Library/CloudStorage/GoogleDrive-shuto.1011@icloud.com/%E3%83%9E%E3%82%A4%E3%83%88%E3%82%99%E3%83%A9%E3%82%A4%E3%83%95%E3%82%99/LifeisTech/LA/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/Project/siriaiZukan/siriaiZukan/Community/ViewController/CommunityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "92766693-9322-4DB7-AB1A-11F064979A0E - fbe1abfd26144245"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "siriaiZukan.CommunityViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;siriaiZukan.CommunityViewController&gt;"
+                  moduleName = "siriaiZukan"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/urassh/Library/CloudStorage/GoogleDrive-shuto.1011@icloud.com/%E3%83%9E%E3%82%A4%E3%83%88%E3%82%99%E3%83%A9%E3%82%A4%E3%83%95%E3%82%99/LifeisTech/LA/iPhone%E3%82%B3%E3%83%BC%E3%82%B9/Project/siriaiZukan/siriaiZukan/Community/ViewController/CommunityViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

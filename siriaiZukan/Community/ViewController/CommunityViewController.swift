@@ -10,22 +10,39 @@ import UIKit
 class CommunityViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
+    private var viewModel: CommunityViewModel!
+    private var communityArray: Array<Community>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = CommunityViewModel()
+        communityArray = viewModel.getCommunities()
+        
         tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communityCell")
         tableView.dataSource = self
         tableView.delegate   = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reloadView()
+    }
+    
+    private func reloadView() {
+        communityArray = viewModel.getCommunities()
+        tableView.reloadData()
     }
 }
 
 extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        communityArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "communityCell", for: indexPath) as! CommunityTableViewCell
-        cell.setInfo(name: "Life is Tech!", image: UIImage(systemName: "person.fill")!)
+        let community = communityArray[indexPath.row]
+        let icon      = viewModel.loadImage(community: community)!
+        cell.setInfo(name: community.name, image: icon)
         return cell
     }
     

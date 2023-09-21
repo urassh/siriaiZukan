@@ -11,20 +11,24 @@ import UIKit
 
 class CommunityEditViewController: UIViewController {
     @IBOutlet var iconImage: UIImageView!
+    @IBOutlet var defaultLabel: UILabel!
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var nameTextField: UITextField!
     
-    let picker = UIImagePickerController()
-
+    private let picker = UIImagePickerController()
+    private let viewModel = CommunityViewModel()
+    private var community: Community = Community()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        community = Community()
         
         if iconImage.image != nil {
             captureButton.isHidden = true
         }
         
         picker.delegate = self
+        nameTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,31 +38,34 @@ class CommunityEditViewController: UIViewController {
     }
     
     @IBAction func iconButtonTapped() {
-        ///ライブラリにアクセスし、ゲットした写真をiconImageに代入する処理。
         showAlert()
-        print("button tapped")
     }
     
     @IBAction func registerTapped() {
-        ///RealmにCommunity型のデータを格納する。
+        guard let unwrapName  = nameTextField.text else { return }
+        guard let unwrapImage = iconImage.image    else { return }
+        
+        guard let savedImage  = viewModel.saveImage(image: unwrapImage, community: community) else { return }
+        
+        community.name  = unwrapName
+        community.image = savedImage
+        
+        viewModel.appendCommunity(community)
         self.dismiss(animated: true, completion: nil)
     }
     
     private func showAlert() {
         let alert = UIAlertController(title: "どの方法で画像を取得しますか？", message: "", preferredStyle: .actionSheet)
-        let cameraSheet = UIAlertAction(title: "Camera", style: .default) { (action) in
-            //ここにカメラの起動処理を書く。
-            self.dismiss(animated: true, completion: nil)
+        let cameraSheet = UIAlertAction(title: "Camera", style: .default) { [self] (action) in
+            self.picker.sourceType = .camera
+            present(picker, animated: true)
         }
         
         let librarySheet = UIAlertAction(title: "Library", style: .default) { [self] (action) in
             present(picker, animated: true)
-//            self.dismiss(animated: true, completion: nil)
         }
         
-        let cancel = UIAlertAction(title: "キャンセル", style: .cancel) { (acrion) in
-            self.dismiss(animated: true, completion: nil)
-        }
+        let cancel = UIAlertAction(title: "キャンセル", style: .cancel)
         
         alert.addAction(cameraSheet)
         alert.addAction(librarySheet)
@@ -68,11 +75,13 @@ class CommunityEditViewController: UIViewController {
     }
 }
 
-extension CommunityEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension CommunityEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let firstImage = info[.originalImage] as! UIImage
         iconImage.image = firstImage
-        captureButton.isHidden = true
+            .resizable(toSize: CGSize(width: 200, height: 200))
+            .roundedCorners(radius: 10)
+        defaultLabel.isHidden = true
         self.dismiss(animated: true)
     }
     

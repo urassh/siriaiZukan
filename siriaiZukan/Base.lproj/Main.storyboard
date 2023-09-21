@@ -48,18 +48,38 @@
                                     <action selector="registerTapped" destination="ATd-eX-POP" eventType="touchUpInside" id="d8Y-Xb-YFd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qh4-eM-BTi">
-                                <rect key="frame" x="96" y="120" width="200" height="200"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アイコン画像を設定しよう" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NU7-ON-NI0">
+                                <rect key="frame" x="96.666666666666686" y="120" width="200" height="200"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="CxV-TM-dmV"/>
+                                    <constraint firstAttribute="width" constant="200" id="OkT-6H-6mc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qh4-eM-BTi">
+                                <rect key="frame" x="273" y="290" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="tintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="MtG-kk-2q1"/>
+                                    <constraint firstAttribute="width" constant="40" id="PzU-91-cQG"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="アイコンを設定しよう。">
+                                <buttonConfiguration key="configuration" style="plain" title="+">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
-                                    <color key="baseForegroundColor" systemColor="tintColor"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -70,16 +90,21 @@
                         <viewLayoutGuide key="safeArea" id="isi-0j-E95"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="NU7-ON-NI0" firstAttribute="top" secondItem="isi-0j-E95" secondAttribute="top" constant="120" id="Fle-rY-NY1"/>
+                            <constraint firstItem="NU7-ON-NI0" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="GcP-yA-Yb4"/>
                             <constraint firstItem="JfK-32-8jr" firstAttribute="top" secondItem="isi-0j-E95" secondAttribute="top" constant="120" id="TB0-VL-jsp"/>
+                            <constraint firstItem="Qh4-eM-BTi" firstAttribute="top" secondItem="isi-0j-E95" secondAttribute="top" constant="290" id="Uv0-ab-adT"/>
                             <constraint firstItem="JfK-32-8jr" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="Va5-Ze-2Fz"/>
                             <constraint firstItem="bgJ-5X-TSQ" firstAttribute="top" secondItem="Qpe-Zp-BLv" secondAttribute="bottom" constant="40" id="WBg-tZ-CjV"/>
                             <constraint firstItem="Qpe-Zp-BLv" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="Xsv-JG-TUY"/>
+                            <constraint firstItem="isi-0j-E95" firstAttribute="trailing" secondItem="Qh4-eM-BTi" secondAttribute="trailing" constant="80" id="ftq-hR-97S"/>
                             <constraint firstItem="Qpe-Zp-BLv" firstAttribute="centerY" secondItem="URA-P7-aN3" secondAttribute="centerY" id="n9i-6S-bP3"/>
                             <constraint firstItem="bgJ-5X-TSQ" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="sP9-1C-c3f"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="captureButton" destination="Qh4-eM-BTi" id="6yc-gX-wUC"/>
+                        <outlet property="defaultLabel" destination="NU7-ON-NI0" id="3AN-97-jmg"/>
                         <outlet property="iconImage" destination="JfK-32-8jr" id="Q3d-Yq-6xb"/>
                         <outlet property="nameTextField" destination="Qpe-Zp-BLv" id="FuF-LF-xac"/>
                     </connections>
@@ -172,9 +197,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

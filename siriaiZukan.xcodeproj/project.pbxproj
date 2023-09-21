@@ -24,6 +24,7 @@
 		109B02C52ABB112100E6E8AE /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C42ABB112100E6E8AE /* CommunityViewModel.swift */; };
 		109B02C72ABB121B00E6E8AE /* CommunityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C62ABB121B00E6E8AE /* CommunityModel.swift */; };
 		109B02C92ABB197300E6E8AE /* ImageResistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C82ABB197300E6E8AE /* ImageResistry.swift */; };
+		109B02CE2ABBCD2E00E6E8AE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02CD2ABBCD2E00E6E8AE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		109B02C42ABB112100E6E8AE /* CommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewModel.swift; sourceTree = "<group>"; };
 		109B02C62ABB121B00E6E8AE /* CommunityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModel.swift; sourceTree = "<group>"; };
 		109B02C82ABB197300E6E8AE /* ImageResistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResistry.swift; sourceTree = "<group>"; };
+		109B02CD2ABBCD2E00E6E8AE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				109B02B92ABB0C2200E6E8AE /* Model */,
+				109B02CD2ABBCD2E00E6E8AE /* Extensions.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				109B02C52ABB112100E6E8AE /* CommunityViewModel.swift in Sources */,
 				109B02AE2ABAAC0400E6E8AE /* CommunityTableViewCell.swift in Sources */,
 				109B02BB2ABB0C5900E6E8AE /* RealmRepository.swift in Sources */,
+				109B02CE2ABBCD2E00E6E8AE /* Extensions.swift in Sources */,
 				109B02932ABAA98100E6E8AE /* SceneDelegate.swift in Sources */,
 				109B02C72ABB121B00E6E8AE /* CommunityModel.swift in Sources */,
 				109B02A92ABAAAFC00E6E8AE /* CommunityEditViewController.swift in Sources */,
@@ -409,6 +413,8 @@
 				DEVELOPMENT_TEAM = NJ55RU4U3A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = siriaiZukan/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "アイコン画像の取得にカメラを使用します。";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アイコン画像の取得に利用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -437,6 +443,8 @@
 				DEVELOPMENT_TEAM = NJ55RU4U3A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = siriaiZukan/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "アイコン画像の取得にカメラを使用します。";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アイコン画像の取得に利用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

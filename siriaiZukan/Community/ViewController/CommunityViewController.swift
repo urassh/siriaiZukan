@@ -21,10 +21,24 @@ class CommunityViewController: UIViewController {
         tableView.register(UINib(nibName: "CommunityTableViewCell", bundle: nil), forCellReuseIdentifier: "communityCell")
         tableView.dataSource = self
         tableView.delegate   = self
+        tableView.rowHeight = 80
+    }
+    
+    @IBAction func addButtonTapped() {
+        self.performSegue(withIdentifier: "toEditCommunity", sender: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         reloadView()
+        self.navigationItem.hidesBackButton = true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toMemberView" {
+            let memberVC = segue.destination as! MemberViewController
+            memberVC.community = sender as? Community
+
+        }
     }
     
     private func reloadView() {
@@ -47,6 +61,6 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "toMemberView", sender: nil)
+        self.performSegue(withIdentifier: "toMemberView", sender: self.communityArray[indexPath.row])
     }
 }

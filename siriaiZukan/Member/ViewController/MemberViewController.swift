@@ -9,21 +9,44 @@ import UIKit
 
 class MemberViewController: UIViewController {
 
+    
+    public var community: Community? = nil
+    @IBOutlet var memberCollectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        memberCollectionView.dataSource = self
+        memberCollectionView.delegate   = self
+        navigationItem.title = community?.name ?? "Community"
+        
+        memberCollectionView.register(UINib(nibName: "MemberCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "memberCollectioinViewCell")
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension MemberViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        16
     }
-    */
 
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memberCollectioinViewCell", for: indexPath) as? MemberCollectionViewCell else { return UICollectionViewCell() }
+        
+        // セルに枠線をセット
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellSizeWidth: CGFloat = 80.0
+        let cellSizeHeight: CGFloat = 140.0
+        // widthとheightのサイズを返す
+        return CGSize(width: cellSizeWidth, height: cellSizeHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16.0 // 行間
+    }
 }

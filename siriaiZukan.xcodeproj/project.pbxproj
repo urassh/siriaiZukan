@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1035B05C2ABD5A5D0074DDA4 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1035B05B2ABD5A5D0074DDA4 /* Member.swift */; };
+		1035B05E2ABD5E280074DDA4 /* gradationColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1035B05D2ABD5E280074DDA4 /* gradationColor.swift */; };
+		103C82312ABDC25600997DE3 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C822F2ABDC25600997DE3 /* MemberCollectionViewCell.swift */; };
+		103C82322ABDC25600997DE3 /* MemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103C82302ABDC25600997DE3 /* MemberCollectionViewCell.xib */; };
+		103C82352ABDCDB000997DE3 /* CollectionBackgroundCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */; };
 		109B02912ABAA98100E6E8AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02902ABAA98100E6E8AE /* AppDelegate.swift */; };
 		109B02932ABAA98100E6E8AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02922ABAA98100E6E8AE /* SceneDelegate.swift */; };
 		109B02952ABAA98100E6E8AE /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02942ABAA98100E6E8AE /* CommunityViewController.swift */; };
@@ -22,12 +27,17 @@
 		109B02BB2ABB0C5900E6E8AE /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02BA2ABB0C5900E6E8AE /* RealmRepository.swift */; };
 		109B02BF2ABB0DE300E6E8AE /* RealmModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02BE2ABB0DE300E6E8AE /* RealmModelProtocol.swift */; };
 		109B02C52ABB112100E6E8AE /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C42ABB112100E6E8AE /* CommunityViewModel.swift */; };
-		109B02C72ABB121B00E6E8AE /* CommunityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C62ABB121B00E6E8AE /* CommunityModel.swift */; };
+		109B02C72ABB121B00E6E8AE /* Community.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C62ABB121B00E6E8AE /* Community.swift */; };
 		109B02C92ABB197300E6E8AE /* ImageResistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02C82ABB197300E6E8AE /* ImageResistry.swift */; };
 		109B02CE2ABBCD2E00E6E8AE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02CD2ABBCD2E00E6E8AE /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1035B05B2ABD5A5D0074DDA4 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		1035B05D2ABD5E280074DDA4 /* gradationColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradationColor.swift; sourceTree = "<group>"; };
+		103C822F2ABDC25600997DE3 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
+		103C82302ABDC25600997DE3 /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
+		103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBackgroundCard.swift; sourceTree = "<group>"; };
 		109B028D2ABAA98100E6E8AE /* siriaiZukan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = siriaiZukan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		109B02902ABAA98100E6E8AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109B02922ABAA98100E6E8AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +53,7 @@
 		109B02BA2ABB0C5900E6E8AE /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		109B02BE2ABB0DE300E6E8AE /* RealmModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModelProtocol.swift; sourceTree = "<group>"; };
 		109B02C42ABB112100E6E8AE /* CommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewModel.swift; sourceTree = "<group>"; };
-		109B02C62ABB121B00E6E8AE /* CommunityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModel.swift; sourceTree = "<group>"; };
+		109B02C62ABB121B00E6E8AE /* Community.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Community.swift; sourceTree = "<group>"; };
 		109B02C82ABB197300E6E8AE /* ImageResistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResistry.swift; sourceTree = "<group>"; };
 		109B02CD2ABBCD2E00E6E8AE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,6 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103C822E2ABDC22B00997DE3 /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				103C822F2ABDC25600997DE3 /* MemberCollectionViewCell.swift */,
+				103C82302ABDC25600997DE3 /* MemberCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		103C82332ABDCD6300997DE3 /* DrarView */ = {
+			isa = PBXGroup;
+			children = (
+				103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */,
+			);
+			path = DrarView;
+			sourceTree = "<group>";
+		};
 		109B02842ABAA98100E6E8AE = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				109B02B72ABAB09900E6E8AE /* Model */,
+				103C82332ABDCD6300997DE3 /* DrarView */,
+				103C822E2ABDC22B00997DE3 /* CollectionViewCell */,
 				109B02AB2ABAAB7F00E6E8AE /* ViewController */,
 			);
 			path = Member;
@@ -142,7 +171,7 @@
 		109B02B62ABAB08300E6E8AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				109B02C62ABB121B00E6E8AE /* CommunityModel.swift */,
+				109B02C62ABB121B00E6E8AE /* Community.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +179,7 @@
 		109B02B72ABAB09900E6E8AE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1035B05B2ABD5A5D0074DDA4 /* Member.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +189,7 @@
 			children = (
 				109B02B92ABB0C2200E6E8AE /* Model */,
 				109B02CD2ABBCD2E00E6E8AE /* Extensions.swift */,
+				1035B05D2ABD5E280074DDA4 /* gradationColor.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -238,6 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103C82322ABDC25600997DE3 /* MemberCollectionViewCell.xib in Resources */,
 				109B029D2ABAA98200E6E8AE /* LaunchScreen.storyboard in Resources */,
 				109B029A2ABAA98200E6E8AE /* Assets.xcassets in Resources */,
 				109B02982ABAA98100E6E8AE /* Main.storyboard in Resources */,
@@ -258,12 +290,16 @@
 				109B02912ABAA98100E6E8AE /* AppDelegate.swift in Sources */,
 				109B02C52ABB112100E6E8AE /* CommunityViewModel.swift in Sources */,
 				109B02AE2ABAAC0400E6E8AE /* CommunityTableViewCell.swift in Sources */,
+				103C82312ABDC25600997DE3 /* MemberCollectionViewCell.swift in Sources */,
 				109B02BB2ABB0C5900E6E8AE /* RealmRepository.swift in Sources */,
 				109B02CE2ABBCD2E00E6E8AE /* Extensions.swift in Sources */,
 				109B02932ABAA98100E6E8AE /* SceneDelegate.swift in Sources */,
-				109B02C72ABB121B00E6E8AE /* CommunityModel.swift in Sources */,
+				1035B05C2ABD5A5D0074DDA4 /* Member.swift in Sources */,
+				109B02C72ABB121B00E6E8AE /* Community.swift in Sources */,
 				109B02A92ABAAAFC00E6E8AE /* CommunityEditViewController.swift in Sources */,
 				109B02BF2ABB0DE300E6E8AE /* RealmModelProtocol.swift in Sources */,
+				1035B05E2ABD5E280074DDA4 /* gradationColor.swift in Sources */,
+				103C82352ABDCDB000997DE3 /* CollectionBackgroundCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +449,7 @@
 				DEVELOPMENT_TEAM = NJ55RU4U3A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = siriaiZukan/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "アイコン画像の取得にカメラを使用します。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アイコン画像の取得に利用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -443,6 +480,7 @@
 				DEVELOPMENT_TEAM = NJ55RU4U3A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = siriaiZukan/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "アイコン画像の取得にカメラを使用します。";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "アイコン画像の取得に利用します。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -5,51 +5,32 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Community Edit View Controller-->
+        <!--Create Community-->
         <scene sceneID="uzp-2c-aiO">
             <objects>
-                <viewController id="ATd-eX-POP" customClass="CommunityEditViewController" customModule="siriaiZukan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="communityVC" modalPresentationStyle="fullScreen" id="ATd-eX-POP" customClass="CommunityEditViewController" customModule="siriaiZukan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="URA-P7-aN3">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JfK-32-8jr">
-                                <rect key="frame" x="96.666666666666686" y="120" width="200" height="200"/>
+                                <rect key="frame" x="96.666666666666686" y="223" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="tds-M1-xHy"/>
                                     <constraint firstAttribute="width" constant="200" id="xvn-Y1-yEt"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="あなたが所属しているCommunity を入力してみよう!!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qpe-Zp-BLv">
-                                <rect key="frame" x="58.333333333333343" y="404" width="276.66666666666663" height="34"/>
+                                <rect key="frame" x="58.333333333333343" y="453" width="276.66666666666663" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgJ-5X-TSQ">
-                                <rect key="frame" x="96.666666666666686" y="478" width="200" height="50"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="NBX-He-8tJ"/>
-                                    <constraint firstAttribute="height" constant="50" id="TAM-0Y-iXK"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Register">
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="registerTapped" destination="ATd-eX-POP" eventType="touchUpInside" id="d8Y-Xb-YFd"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="アイコン画像を設定しよう" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NU7-ON-NI0">
-                                <rect key="frame" x="96.666666666666686" y="120" width="200" height="200"/>
+                                <rect key="frame" x="96.666666666666686" y="223" width="200" height="200"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="CxV-TM-dmV"/>
@@ -66,7 +47,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qh4-eM-BTi">
-                                <rect key="frame" x="273" y="290" width="40" height="40"/>
+                                <rect key="frame" x="273" y="393" width="40" height="40"/>
                                 <color key="backgroundColor" systemColor="tintColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="MtG-kk-2q1"/>
@@ -86,22 +67,43 @@
                                     <action selector="iconButtonTapped" destination="ATd-eX-POP" eventType="touchUpInside" id="HVO-qB-dmL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgJ-5X-TSQ">
+                                <rect key="frame" x="96.666666666666686" y="507" width="200" height="50"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="NBX-He-8tJ"/>
+                                    <constraint firstAttribute="height" constant="50" id="TAM-0Y-iXK"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Register">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="registerTapped" destination="ATd-eX-POP" eventType="touchUpInside" id="d8Y-Xb-YFd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="isi-0j-E95"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Qpe-Zp-BLv" firstAttribute="top" secondItem="Qh4-eM-BTi" secondAttribute="bottom" constant="20" id="EED-yc-tJb"/>
                             <constraint firstItem="NU7-ON-NI0" firstAttribute="top" secondItem="isi-0j-E95" secondAttribute="top" constant="120" id="Fle-rY-NY1"/>
                             <constraint firstItem="NU7-ON-NI0" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="GcP-yA-Yb4"/>
                             <constraint firstItem="JfK-32-8jr" firstAttribute="top" secondItem="isi-0j-E95" secondAttribute="top" constant="120" id="TB0-VL-jsp"/>
                             <constraint firstItem="Qh4-eM-BTi" firstAttribute="top" secondItem="isi-0j-E95" secondAttribute="top" constant="290" id="Uv0-ab-adT"/>
                             <constraint firstItem="JfK-32-8jr" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="Va5-Ze-2Fz"/>
-                            <constraint firstItem="bgJ-5X-TSQ" firstAttribute="top" secondItem="Qpe-Zp-BLv" secondAttribute="bottom" constant="40" id="WBg-tZ-CjV"/>
                             <constraint firstItem="Qpe-Zp-BLv" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="Xsv-JG-TUY"/>
                             <constraint firstItem="isi-0j-E95" firstAttribute="trailing" secondItem="Qh4-eM-BTi" secondAttribute="trailing" constant="80" id="ftq-hR-97S"/>
-                            <constraint firstItem="Qpe-Zp-BLv" firstAttribute="centerY" secondItem="URA-P7-aN3" secondAttribute="centerY" id="n9i-6S-bP3"/>
+                            <constraint firstItem="bgJ-5X-TSQ" firstAttribute="top" secondItem="Qpe-Zp-BLv" secondAttribute="bottom" constant="20" id="jZj-km-i6Z"/>
                             <constraint firstItem="bgJ-5X-TSQ" firstAttribute="centerX" secondItem="URA-P7-aN3" secondAttribute="centerX" id="sP9-1C-c3f"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Create Community" id="s3q-9s-fzO"/>
                     <connections>
                         <outlet property="captureButton" destination="Qh4-eM-BTi" id="6yc-gX-wUC"/>
                         <outlet property="defaultLabel" destination="NU7-ON-NI0" id="3AN-97-jmg"/>
@@ -116,7 +118,7 @@
         <!--Community-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CommunityViewController" customModule="siriaiZukan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="memberVC" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="CommunityViewController" customModule="siriaiZukan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,13 +150,14 @@
                     <navigationItem key="navigationItem" title="Community" id="kxZ-VE-aAF">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="76e-zo-hys">
                             <connections>
-                                <segue destination="ATd-eX-POP" kind="presentation" id="f1R-NW-zGA"/>
+                                <action selector="addButtonTapped" destination="BYZ-38-t0r" id="34V-un-HF6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="9Av-hI-zJD" id="cTE-cV-qc8"/>
                         <segue destination="nMq-Yq-ouU" kind="show" identifier="toMemberView" id="DJm-qt-3On"/>
+                        <segue destination="ATd-eX-POP" kind="show" identifier="toEditCommunity" id="Rk5-8P-zNr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -168,10 +171,44 @@
                     <view key="view" contentMode="scaleToFill" id="DSS-6R-2KE">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="edX-HR-FgV">
+                                <rect key="frame" x="16" y="119" width="361" height="699"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Kox-Bc-dsR">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="N8j-WJ-Nea">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pfB-FE-xI4">
+                                            <rect key="frame" x="0.0" y="0.0" width="80" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="80" height="140"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3wg-NL-l9I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="edX-HR-FgV" firstAttribute="leading" secondItem="3wg-NL-l9I" secondAttribute="leading" constant="16" id="Rnm-5L-ikI"/>
+                            <constraint firstItem="edX-HR-FgV" firstAttribute="top" secondItem="3wg-NL-l9I" secondAttribute="top" constant="16" id="gBa-OK-EE6"/>
+                            <constraint firstItem="3wg-NL-l9I" firstAttribute="trailing" secondItem="edX-HR-FgV" secondAttribute="trailing" constant="16" id="h3z-L6-FTX"/>
+                            <constraint firstItem="edX-HR-FgV" firstAttribute="bottom" secondItem="3wg-NL-l9I" secondAttribute="bottom" id="pyU-3J-2Z4"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="dPN-Iv-Gaa"/>
+                    <navigationItem key="navigationItem" id="dPN-Iv-Gaa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Bts-3u-cdm"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="memberCollectionView" destination="edX-HR-FgV" id="IqR-7h-hDo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8I-br-mDs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

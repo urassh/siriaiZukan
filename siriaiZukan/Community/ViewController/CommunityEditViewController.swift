@@ -45,13 +45,17 @@ class CommunityEditViewController: UIViewController {
         guard let unwrapName  = nameTextField.text else { return }
         guard let unwrapImage = iconImage.image    else { return }
         
-        guard let savedImage  = viewModel.saveImage(image: unwrapImage, community: community) else { return }
+        guard let savedImage  = viewModel.saveImage(image: unwrapImage, name: unwrapName) else { return }
         
         community.name  = unwrapName
         community.image = savedImage
         
         viewModel.appendCommunity(community)
-        self.dismiss(animated: true, completion: nil)
+        
+        let storyboard: UIStoryboard = self.storyboard!
+        let memberView = storyboard.instantiateViewController(withIdentifier: "memberVC") as! CommunityViewController
+
+        self.navigationController?.pushViewController(memberView, animated: true)
     }
     
     private func showAlert() {

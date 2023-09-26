@@ -1,22 +1,21 @@
 //
-//  Member.swift
+//  Community.swift
 //  siriaiZukan
 //
-//  Created by 浦山秀斗 on 2023/09/22.
+//  Created by 浦山秀斗 on 2023/09/20.
 //
 import Foundation
 import RealmSwift
+import UIKit
 
-class Member: Object, RealmModel, Sequence {
+class Community: Object, RealmModel, Sequence {
     @Persisted var id: String = UUID().uuidString
     @Persisted var name: String
-    @Persisted var nickName: String
     @Persisted var image: String
-    @Persisted var community: Community?
-
+    
     // RealmSwiftのListを使用して要素を格納
-    var elements: List<Member> = List<Member>()
-
+    var elements: List<Community> = List<Community>()
+    
     // Sequenceプロトコルに必要な要素を提供するメソッド
     func makeIterator() -> some IteratorProtocol {
         return elements.makeIterator()

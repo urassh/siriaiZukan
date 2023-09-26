@@ -8,45 +8,90 @@
 import UIKit
 
 class MemberViewController: UIViewController {
-
-    
-    public var community: Community? = nil
+    public var community: Community!
     @IBOutlet var memberCollectionView: UICollectionView!
+    private var memberArray: Array<Member>!
+    private var viewModel: MemberViewModel = MemberViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        memberArray = viewModel.getMembers()
         memberCollectionView.dataSource = self
         memberCollectionView.delegate   = self
-        navigationItem.title = community?.name ?? "Community"
+        navigationItem.title = community.name
         
         memberCollectionView.register(UINib(nibName: "MemberCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "memberCollectioinViewCell")
+    }
+    
+    @IBAction func tappedAddButton() {
+        transEditView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reloadView()
+    }
+    
+    private func transEditView() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let memberEditVC = storyboard.instantiateViewController(withIdentifier: "MemberEditViewController")
+                
+        memberEditVC.modalPresentationStyle = .formSheet
+        memberEditVC.presentationController?.delegate = self
+        present(memberEditVC, animated: true)
+    }
+    
+    private func transDetailView(member: Member) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let memberDetailVC = storyboard.instantiateViewController(withIdentifier: "MemberDetailViewController") as! MemberDetailViewController
+        
+        memberDetailVC.member = member
+        memberDetailVC.modalPresentationStyle = .formSheet
+        memberDetailVC.presentationController?.delegate = self
+        present(memberDetailVC, animated: true)
+    }
+    
+    private func reloadView() {
+        memberArray = viewModel.getMembers()
+        memberCollectionView.reloadData()
     }
 }
 
 extension MemberViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        16
+        memberArray.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memberCollectioinViewCell", for: indexPath) as? MemberCollectionViewCell else { return UICollectionViewCell() }
         
-        // セルに枠線をセット
+        let member = memberArray[indexPath.row]
+        let icon   = viewModel.loadImage(member: member) ?? UIImage(systemName: "person.fill")
+        cell.setupInfo(icon: icon!, nickName: member.nickName, realName: member.name)
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSizeWidth: CGFloat = 80.0
         let cellSizeHeight: CGFloat = 140.0
-        // widthとheightのサイズを返す
         return CGSize(width: cellSizeWidth, height: cellSizeHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 16.0 // 行間
+        return 16.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        transDetailView(member: memberArray[indexPath.row])
+    }
+}
+
+extension MemberViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        reloadView()
     }
 }

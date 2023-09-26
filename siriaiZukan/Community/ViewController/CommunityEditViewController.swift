@@ -17,16 +17,12 @@ class CommunityEditViewController: UIViewController {
     
     private let picker = UIImagePickerController()
     private let viewModel = CommunityViewModel()
-    private var community: Community = Community()
+    private var newCommunity: Community!
+    private var capturedImage: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        community = Community()
-        
-        if iconImage.image != nil {
-            captureButton.isHidden = true
-        }
-        
+        newCommunity = Community()
         picker.delegate = self
         nameTextField.delegate = self
     }
@@ -44,18 +40,16 @@ class CommunityEditViewController: UIViewController {
     @IBAction func registerTapped() {
         guard let unwrapName  = nameTextField.text else { return }
         guard let unwrapImage = iconImage.image    else { return }
+        guard let savedImage  = viewModel.saveImage(image: unwrapImage, id: newCommunity.id) else { return }
         
-        guard let savedImage  = viewModel.saveImage(image: unwrapImage, name: unwrapName) else { return }
-        
-        community.name  = unwrapName
-        community.image = savedImage
-        
-        viewModel.appendCommunity(community)
+        newCommunity.name  = unwrapName
+        newCommunity.image = savedImage
+        viewModel.appendCommunity(newCommunity)
         
         let storyboard: UIStoryboard = self.storyboard!
-        let memberView = storyboard.instantiateViewController(withIdentifier: "memberVC") as! CommunityViewController
+        let communityView = storyboard.instantiateViewController(withIdentifier: "communityVC") as! CommunityViewController
 
-        self.navigationController?.pushViewController(memberView, animated: true)
+        self.navigationController?.pushViewController(communityView, animated: true)
     }
     
     private func showAlert() {
@@ -66,6 +60,7 @@ class CommunityEditViewController: UIViewController {
         }
         
         let librarySheet = UIAlertAction(title: "Library", style: .default) { [self] (action) in
+            self.picker.sourceType = .photoLibrary
             present(picker, animated: true)
         }
         
@@ -82,9 +77,11 @@ class CommunityEditViewController: UIViewController {
 extension CommunityEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let firstImage = info[.originalImage] as! UIImage
-        iconImage.image = firstImage
+        capturedImage = firstImage
             .resizable(toSize: CGSize(width: 200, height: 200))
             .roundedCorners(radius: 10)
+        iconImage.image = capturedImage
+        newCommunity.image = viewModel.saveImage(image: firstImage, id: newCommunity.id)!
         defaultLabel.isHidden = true
         self.dismiss(animated: true)
     }

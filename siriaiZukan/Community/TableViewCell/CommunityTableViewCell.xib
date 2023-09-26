@@ -22,11 +22,6 @@
                             <constraint firstAttribute="width" constant="60" id="lVY-4e-Thz"/>
                             <constraint firstAttribute="height" constant="60" id="xAp-5r-y1Q"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CommunityName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X77-mH-R6H">
                         <rect key="frame" x="84" y="28" width="236" height="24"/>

@@ -12,6 +12,9 @@
 		103C82312ABDC25600997DE3 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C822F2ABDC25600997DE3 /* MemberCollectionViewCell.swift */; };
 		103C82322ABDC25600997DE3 /* MemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103C82302ABDC25600997DE3 /* MemberCollectionViewCell.xib */; };
 		103C82352ABDCDB000997DE3 /* CollectionBackgroundCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */; };
+		105BE1742ABEA7DF00997CEE /* MemberEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105BE1732ABEA7DF00997CEE /* MemberEditViewController.swift */; };
+		105BE1762ABEA7EF00997CEE /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105BE1752ABEA7EF00997CEE /* MemberDetailViewController.swift */; };
+		105BE1782ABEB8DF00997CEE /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105BE1772ABEB8DF00997CEE /* MemberViewModel.swift */; };
 		109B02912ABAA98100E6E8AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02902ABAA98100E6E8AE /* AppDelegate.swift */; };
 		109B02932ABAA98100E6E8AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02922ABAA98100E6E8AE /* SceneDelegate.swift */; };
 		109B02952ABAA98100E6E8AE /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109B02942ABAA98100E6E8AE /* CommunityViewController.swift */; };
@@ -38,6 +41,9 @@
 		103C822F2ABDC25600997DE3 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		103C82302ABDC25600997DE3 /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBackgroundCard.swift; sourceTree = "<group>"; };
+		105BE1732ABEA7DF00997CEE /* MemberEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberEditViewController.swift; sourceTree = "<group>"; };
+		105BE1752ABEA7EF00997CEE /* MemberDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
+		105BE1772ABEB8DF00997CEE /* MemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
 		109B028D2ABAA98100E6E8AE /* siriaiZukan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = siriaiZukan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		109B02902ABAA98100E6E8AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		109B02922ABAA98100E6E8AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,12 +86,12 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
-		103C82332ABDCD6300997DE3 /* DrarView */ = {
+		103C82332ABDCD6300997DE3 /* DrawView */ = {
 			isa = PBXGroup;
 			children = (
 				103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */,
 			);
-			path = DrarView;
+			path = DrawView;
 			sourceTree = "<group>";
 		};
 		109B02842ABAA98100E6E8AE = {
@@ -126,7 +132,6 @@
 				109B02B62ABAB08300E6E8AE /* Model */,
 				109B02B02ABAAC0900E6E8AE /* TableViewCell */,
 				109B02AA2ABAAB7200E6E8AE /* ViewController */,
-				109B02C42ABB112100E6E8AE /* CommunityViewModel.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -135,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				109B02B72ABAB09900E6E8AE /* Model */,
-				103C82332ABDCD6300997DE3 /* DrarView */,
+				103C82332ABDCD6300997DE3 /* DrawView */,
 				103C822E2ABDC22B00997DE3 /* CollectionViewCell */,
 				109B02AB2ABAAB7F00E6E8AE /* ViewController */,
 			);
@@ -155,6 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				109B02A62ABAAA7800E6E8AE /* MemberViewController.swift */,
+				105BE1752ABEA7EF00997CEE /* MemberDetailViewController.swift */,
+				105BE1732ABEA7DF00997CEE /* MemberEditViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				109B02C62ABB121B00E6E8AE /* Community.swift */,
+				109B02C42ABB112100E6E8AE /* CommunityViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				1035B05B2ABD5A5D0074DDA4 /* Member.swift */,
+				105BE1772ABEB8DF00997CEE /* MemberViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,9 +299,12 @@
 				109B02912ABAA98100E6E8AE /* AppDelegate.swift in Sources */,
 				109B02C52ABB112100E6E8AE /* CommunityViewModel.swift in Sources */,
 				109B02AE2ABAAC0400E6E8AE /* CommunityTableViewCell.swift in Sources */,
+				105BE1742ABEA7DF00997CEE /* MemberEditViewController.swift in Sources */,
 				103C82312ABDC25600997DE3 /* MemberCollectionViewCell.swift in Sources */,
+				105BE1782ABEB8DF00997CEE /* MemberViewModel.swift in Sources */,
 				109B02BB2ABB0C5900E6E8AE /* RealmRepository.swift in Sources */,
 				109B02CE2ABBCD2E00E6E8AE /* Extensions.swift in Sources */,
+				105BE1762ABEA7EF00997CEE /* MemberDetailViewController.swift in Sources */,
 				109B02932ABAA98100E6E8AE /* SceneDelegate.swift in Sources */,
 				1035B05C2ABD5A5D0074DDA4 /* Member.swift in Sources */,
 				109B02C72ABB121B00E6E8AE /* Community.swift in Sources */,

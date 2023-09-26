@@ -39,12 +39,6 @@ class CommunityEditViewController: UIViewController {
         nameTextField.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        if iconImage.image != nil {
-            captureButton.isHidden = true
-        }
-    }
-    
     @IBAction func iconButtonTapped() {
         showAlert()
     }

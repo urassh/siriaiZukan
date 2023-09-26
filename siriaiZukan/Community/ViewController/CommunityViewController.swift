@@ -64,25 +64,18 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         self.performSegue(withIdentifier: "toMemberView", sender: self.communityArray[indexPath.row])
     }
     
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        // 編集処理
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [self] (action, view, completionHandler) in
-            // 編集処理を記述
             let storyboard: UIStoryboard = self.storyboard!
             let communityEditView = storyboard.instantiateViewController(withIdentifier: "communityCreateVC") as! CommunityEditViewController
             communityEditView.editCommunity = communityArray[indexPath.row]
-
             self.navigationController?.pushViewController(communityEditView, animated: true)
-
-            // 実行結果に関わらず記述
             completionHandler(true)
         }
 
-        // 削除処理
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completionHandler) in
             self.viewModel.deleteCommunity(self.communityArray[indexPath.row])
             self.reloadView()
-            // 実行結果に関わらず記述
             completionHandler(true)
         }
         

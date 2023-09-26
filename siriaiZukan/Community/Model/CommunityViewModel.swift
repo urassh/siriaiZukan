@@ -26,10 +26,12 @@ class CommunityViewModel {
     }
     
     public func deleteCommunity(_ community: Community) {
+        imageResistry.deleteImage(id: community.id)
         repository.delete(community)
     }
     
     public func updateCommunity(before: Community, after: Community) {
+        imageResistry.deleteImage(id: before.id)
         repository.update(before: before, after: after)
     }
     

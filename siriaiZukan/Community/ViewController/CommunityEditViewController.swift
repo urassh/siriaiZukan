@@ -15,7 +15,8 @@ class CommunityEditViewController: UIViewController {
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var nameTextField: UITextField!
     
-    private let picker = UIImagePickerController()
+    public var editCommunity: Community?
+    private let picker    = UIImagePickerController()
     private let viewModel = CommunityViewModel()
     private var newCommunity: Community!
     private var capturedImage: UIImage!
@@ -23,6 +24,17 @@ class CommunityEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newCommunity = Community()
+        
+        if editCommunity != nil {
+            nameTextField.text = editCommunity!.name
+            defaultLabel.isHidden = true
+            if let unwrapImage = viewModel.loadImage(community: editCommunity!) {
+                iconImage.image = treatIconImage(unwrapImage)
+            } else {
+                iconImage.image = treatIconImage(UIImage(systemName: "person.fill")!)
+            }
+        }
+        
         picker.delegate = self
         nameTextField.delegate = self
     }
@@ -44,7 +56,12 @@ class CommunityEditViewController: UIViewController {
         
         newCommunity.name  = unwrapName
         newCommunity.image = savedImage
-        viewModel.appendCommunity(newCommunity)
+        
+        if editCommunity == nil {
+            viewModel.appendCommunity(newCommunity)
+        } else {
+            viewModel.updateCommunity(before: editCommunity!, after: newCommunity)
+        }
         
         let storyboard: UIStoryboard = self.storyboard!
         let communityView = storyboard.instantiateViewController(withIdentifier: "communityVC") as! CommunityViewController
@@ -72,14 +89,18 @@ class CommunityEditViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    private func treatIconImage(_ image: UIImage) -> UIImage{
+        image
+            .resizable(toSize: CGSize(width: 200, height: 200))
+            .roundedCorners(radius: 10)
+    }
 }
 
 extension CommunityEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let firstImage = info[.originalImage] as! UIImage
-        capturedImage = firstImage
-            .resizable(toSize: CGSize(width: 200, height: 200))
-            .roundedCorners(radius: 10)
+        capturedImage = treatIconImage(firstImage)
         iconImage.image = capturedImage
         newCommunity.image = viewModel.saveImage(image: firstImage, id: newCommunity.id)!
         defaultLabel.isHidden = true
@@ -90,5 +111,3 @@ extension CommunityEditViewController: UIImagePickerControllerDelegate, UINaviga
         picker.dismiss(animated: true, completion: nil)
     }
 }
-
-

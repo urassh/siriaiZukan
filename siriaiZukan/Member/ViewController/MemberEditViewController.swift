@@ -16,16 +16,22 @@ class MemberEditViewController: UIViewController {
     public  var community: Community? = nil
     public  var editMember: Member?
     private var member: Member = Member()
+    private var originalImage: UIImage?
     private let picker = UIImagePickerController()
     private let viewModel = MemberViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if editMember == nil {
-            iconImage.image = UIImage(systemName: "person.fill")
+        if let member = editMember,
+           let loadedImage = viewModel.loadImage(member: member)
+        {
+            iconImage.image = treatIconImage(loadedImage)
+            originalImage = loadedImage
         } else {
-            iconImage.image = viewModel.loadImage(member: editMember!)
+            iconImage.image = treatIconImage(UIImage(systemName: "person.fill")!)
+            originalImage = UIImage(systemName: "person.fill")
         }
+        
         nickNameTextField.text = editMember?.nickName ?? ""
         realNameTextField.text = editMember?.name ?? ""
         
@@ -41,7 +47,7 @@ class MemberEditViewController: UIViewController {
     @IBAction func registerButton() {
         guard let unwrapNickName = nickNameTextField.text else { return }
         guard let unwrapRealName = realNameTextField.text else { return }
-        guard let unwrapImage    = iconImage.image        else { return }
+        guard let unwrapImage    = originalImage          else { return }
         guard let savedImage     = viewModel.saveImage(image: unwrapImage, id: member.id) else { return }
         
         member.nickName  = unwrapNickName
@@ -78,14 +84,19 @@ class MemberEditViewController: UIViewController {
         
         present(alert, animated: true, completion: nil)
     }
+    
+    private func treatIconImage(_ image: UIImage) -> UIImage {
+        image
+            .resizable(toSize: CGSize(width: 200, height: 200))
+            .roundedCorners(radius: 100)
+    }
 }
 
 extension MemberEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let firstImage = info[.originalImage] as! UIImage
-        iconImage.image = firstImage
-            .resizable(toSize: CGSize(width: 200, height: 200))
-            .roundedCorners(radius: 100)
+        originalImage = firstImage
+        iconImage.image = treatIconImage(firstImage)
         self.dismiss(animated: true)
     }
     

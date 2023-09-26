@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class MemberViewController: UIViewController {
     public var community: Community!
     @IBOutlet var memberCollectionView: UICollectionView!
@@ -54,6 +56,12 @@ class MemberViewController: UIViewController {
         memberArray = viewModel.getMembers()
         memberCollectionView.reloadData()
     }
+    
+    private func treatIconImage(_ image: UIImage) -> UIImage {
+        image
+            .resizable(toSize: CGSize(width: 200, height: 200))
+            .roundedCorners(radius: 100)
+    }
 }
 
 extension MemberViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -69,8 +77,15 @@ extension MemberViewController: UICollectionViewDataSource, UICollectionViewDele
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "memberCollectioinViewCell", for: indexPath) as? MemberCollectionViewCell else { return UICollectionViewCell() }
         
         let member = memberArray[indexPath.row]
-        let icon   = viewModel.loadImage(member: member) ?? UIImage(systemName: "person.fill")
-        cell.setupInfo(icon: icon!, nickName: member.nickName, realName: member.name)
+        var iconImage = UIImage()
+        
+        if let unwrapImage = viewModel.loadImage(member: member) {
+            iconImage = treatIconImage(unwrapImage)
+        } else {
+            iconImage = treatIconImage(UIImage(systemName: "person.fill")!)
+        }
+        
+        cell.setupInfo(icon: iconImage, nickName: member.nickName, realName: member.name)
         
         return cell
     }

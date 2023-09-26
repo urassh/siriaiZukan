@@ -18,10 +18,14 @@ class MemberDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MemberViewModel()
+        if let unwrapImage = viewModel.loadImage(member: member) {
+            iconImage.image = treatIconImage(unwrapImage)
+        } else {
+            iconImage.image = treatIconImage(UIImage(systemName: "person.fill")!)
+        }
         
         nickNameLabel.text = member.nickName
         realNameLabel.text = member.name
-        iconImage.image    = viewModel.loadImage(member: member)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -49,12 +53,14 @@ class MemberDetailViewController: UIViewController {
         self.dismiss(animated: true)
     }
     
-    private func transEditView(member: Member) {
+    private func reloadView() {
         
     }
     
-    private func reloadView() {
-        
+    private func treatIconImage(_ image: UIImage) -> UIImage {
+        image
+            .resizable(toSize: CGSize(width: 200, height: 200))
+            .roundedCorners(radius: 100)
     }
 }
 

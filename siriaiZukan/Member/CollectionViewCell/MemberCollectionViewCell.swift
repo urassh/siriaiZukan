@@ -23,7 +23,7 @@ class MemberCollectionViewCell: UICollectionViewCell {
     }
     
     public func setupInfo(icon: UIImage, nickName: String, realName: String) {
-        iconImage.image    = icon.roundedCorners(radius: 25)
+        iconImage.image    = icon
         nickNameLabel.text = nickName
         realNameLabel.text = realName
     }

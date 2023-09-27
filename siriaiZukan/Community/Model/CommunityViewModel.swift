@@ -26,6 +26,16 @@ class CommunityViewModel {
     }
     
     public func deleteCommunity(_ community: Community) {
+        let memberRepository = RealmRepository<Member>()
+        
+        let deleteMembers = memberRepository.getAllitems().filter {
+            $0.community?.id == community.id
+        }
+        
+        for member in deleteMembers {
+            memberRepository.delete(member)
+        }
+        
         imageResistry.deleteImage(id: community.id)
         repository.delete(community)
     }

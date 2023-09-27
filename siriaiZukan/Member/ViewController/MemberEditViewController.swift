@@ -12,32 +12,39 @@ class MemberEditViewController: UIViewController {
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var realNameTextField: UITextField!
     @IBOutlet var nickNameTextField: UITextField!
+    @IBOutlet var aboutLabel: UILabel!
+    @IBOutlet var aboutTextView: UITextView!
     
-    public  var community: Community? = nil
-    public  var editMember: Member?
-    private var member: Member = Member()
-    private var originalImage: UIImage?
+    public  var community: Community!
+    public  var memberId: String?
+    
+    private var member: Member!
+    private var previousMember: Member?
     private let picker = UIImagePickerController()
     private let viewModel = MemberViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let member = editMember,
-           let loadedImage = viewModel.loadImage(member: member)
+        previousMember = viewModel.getMember(community, memberId)
+        member = Member()
+        
+        print("member: ", member)
+        
+        if let editingMember = previousMember,
+            let loadedImage = viewModel.loadImage(editingMember.id)
         {
             iconImage.image = treatIconImage(loadedImage)
-            originalImage = loadedImage
         } else {
             iconImage.image = treatIconImage(UIImage(systemName: "person.fill")!)
-            originalImage = UIImage(systemName: "person.fill")
         }
         
-        nickNameTextField.text = editMember?.nickName ?? ""
-        realNameTextField.text = editMember?.name ?? ""
+        nickNameTextField.text = previousMember?.nickName ?? ""
+        realNameTextField.text = previousMember?.name ?? ""
+        aboutLabel.text = previousMember != nil ? "\(previousMember!.nickName)について" : "この人物について"
+        aboutTextView.text =  previousMember?.about ?? ""
         
         picker.delegate = self
-        nickNameTextField.delegate = self
-        realNameTextField.delegate = self
+        aboutTextView.delegate = self
     }
     
     @IBAction func captureButtonTapped() {
@@ -47,18 +54,24 @@ class MemberEditViewController: UIViewController {
     @IBAction func registerButton() {
         guard let unwrapNickName = nickNameTextField.text else { return }
         guard let unwrapRealName = realNameTextField.text else { return }
-        guard let unwrapImage    = originalImage          else { return }
-        guard let savedImage     = viewModel.saveImage(image: unwrapImage, id: member.id) else { return }
+        guard let unwrapImage    = iconImage.image        else { return }
+        let unwrapAbout = aboutTextView.text ?? ""
         
+        member.id        = previousMember?.id ?? ""
         member.nickName  = unwrapNickName
         member.name      = unwrapRealName
-        member.image     = savedImage
+        member.image     = viewModel.saveImage(image: unwrapImage, id: member.id)!
         member.community = community
+        member.about     = unwrapAbout
         
-        if editMember == nil {
+        if previousMember == nil {
             viewModel.appendMember(member)
         } else {
-            viewModel.updateMember(before: editMember!, after: member)
+            viewModel.updateMember(before: previousMember!, after: member)
+        }
+        
+        if let presentationController = presentationController {
+            presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
         }
         
         self.dismiss(animated: true)
@@ -92,10 +105,9 @@ class MemberEditViewController: UIViewController {
     }
 }
 
-extension MemberEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+extension MemberEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let firstImage = info[.originalImage] as! UIImage
-        originalImage = firstImage
         iconImage.image = treatIconImage(firstImage)
         self.dismiss(animated: true)
     }

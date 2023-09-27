@@ -12,7 +12,9 @@ class Member: Object, RealmModel, Sequence {
     @Persisted var name: String
     @Persisted var nickName: String
     @Persisted var image: String
+    @Persisted var about: String
     @Persisted var community: Community?
+
 
     // RealmSwiftのListを使用して要素を格納
     var elements: List<Member> = List<Member>()

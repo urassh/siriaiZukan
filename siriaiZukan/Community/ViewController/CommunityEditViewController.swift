@@ -4,9 +4,6 @@
 //
 //  Created by 浦山秀斗 on 2023/09/20.
 //
-
-///next: ライブラリにアクセスして、アイコン画像を保存する処理を書く。
-
 import UIKit
 
 class CommunityEditViewController: UIViewController {
@@ -14,19 +11,21 @@ class CommunityEditViewController: UIViewController {
     @IBOutlet var defaultLabel: UILabel!
     @IBOutlet var captureButton: UIButton!
     @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var personTextField: UITextField!
     
     public var editCommunity: Community?
     private let picker    = UIImagePickerController()
     private let viewModel = CommunityViewModel()
     private var newCommunity: Community!
     private var capturedImage: UIImage!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         newCommunity = Community()
         
         if editCommunity != nil {
             nameTextField.text = editCommunity!.name
+            personTextField.text = String(editCommunity!.persons)
             defaultLabel.isHidden = true
             if let unwrapImage = viewModel.loadImage(community: editCommunity!) {
                 iconImage.image = treatIconImage(unwrapImage)
@@ -36,7 +35,6 @@ class CommunityEditViewController: UIViewController {
         }
         
         picker.delegate = self
-        nameTextField.delegate = self
     }
     
     @IBAction func iconButtonTapped() {
@@ -46,10 +44,12 @@ class CommunityEditViewController: UIViewController {
     @IBAction func registerTapped() {
         guard let unwrapName  = nameTextField.text else { return }
         guard let unwrapImage = iconImage.image    else { return }
+        guard let unwrapPersons = personTextField.text else { return }
         guard let savedImage  = viewModel.saveImage(image: unwrapImage, id: newCommunity.id) else { return }
         
         newCommunity.name  = unwrapName
         newCommunity.image = savedImage
+        newCommunity.persons = Int(unwrapPersons) ?? 0
         
         if editCommunity == nil {
             viewModel.appendCommunity(newCommunity)
@@ -91,7 +91,7 @@ class CommunityEditViewController: UIViewController {
     }
 }
 
-extension CommunityEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+extension CommunityEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let firstImage = info[.originalImage] as! UIImage
         capturedImage = treatIconImage(firstImage)

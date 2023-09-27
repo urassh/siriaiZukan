@@ -11,13 +11,15 @@ import UIKit
 
 class MemberViewController: UIViewController {
     public var community: Community!
+    @IBOutlet var achievementLabel: UILabel!
+    @IBOutlet var registerLabel: UILabel!
     @IBOutlet var memberCollectionView: UICollectionView!
     private var memberArray: Array<Member>!
     private var viewModel: MemberViewModel = MemberViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        memberArray = viewModel.getMembers()
+        memberArray = viewModel.getMembers(community: community)
         memberCollectionView.dataSource = self
         memberCollectionView.delegate   = self
         navigationItem.title = community.name
@@ -35,8 +37,9 @@ class MemberViewController: UIViewController {
     
     private func transEditView() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let memberEditVC = storyboard.instantiateViewController(withIdentifier: "MemberEditViewController")
-                
+        let memberEditVC = storyboard.instantiateViewController(withIdentifier: "MemberEditViewController") as! MemberEditViewController
+        
+        memberEditVC.community = community
         memberEditVC.modalPresentationStyle = .formSheet
         memberEditVC.presentationController?.delegate = self
         present(memberEditVC, animated: true)
@@ -46,14 +49,16 @@ class MemberViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let memberDetailVC = storyboard.instantiateViewController(withIdentifier: "MemberDetailViewController") as! MemberDetailViewController
         
-        memberDetailVC.member = member
+        memberDetailVC.memberId = member.id
+        memberDetailVC.community = community
         memberDetailVC.modalPresentationStyle = .formSheet
         memberDetailVC.presentationController?.delegate = self
         present(memberDetailVC, animated: true)
     }
     
     private func reloadView() {
-        memberArray = viewModel.getMembers()
+        registerLabel.text = memberArray.count == community.persons ? "Complete!!" : "\(memberArray.count)人登録 (\(community.persons)人中)"
+        memberArray = viewModel.getMembers(community: community)
         memberCollectionView.reloadData()
     }
     
@@ -79,7 +84,7 @@ extension MemberViewController: UICollectionViewDataSource, UICollectionViewDele
         let member = memberArray[indexPath.row]
         var iconImage = UIImage()
         
-        if let unwrapImage = viewModel.loadImage(member: member) {
+        if let unwrapImage = viewModel.loadImage(member.id) {
             iconImage = treatIconImage(unwrapImage)
         } else {
             iconImage = treatIconImage(UIImage(systemName: "person.fill")!)

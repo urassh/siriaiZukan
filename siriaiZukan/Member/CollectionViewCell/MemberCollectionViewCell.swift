@@ -14,7 +14,9 @@ class MemberCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        iconImage.image = UIImage(systemName: "person.fill")?.roundedCorners(radius: 25)
+        iconImage.layer.borderWidth  = 2.0
+        iconImage.layer.borderColor  = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.6).cgColor
+        iconImage.layer.cornerRadius = 25
     }
     
     required init?(coder aDecoder: NSCoder) {

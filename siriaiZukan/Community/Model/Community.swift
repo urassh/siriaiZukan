@@ -12,6 +12,7 @@ class Community: Object, RealmModel, Sequence {
     @Persisted var id: String = UUID().uuidString
     @Persisted var name: String
     @Persisted var image: String
+    @Persisted var persons: Int
     
     // RealmSwiftのListを使用して要素を格納
     var elements: List<Community> = List<Community>()

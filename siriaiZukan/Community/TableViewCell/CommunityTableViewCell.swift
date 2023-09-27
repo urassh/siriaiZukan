@@ -10,6 +10,7 @@ import UIKit
 class CommunityTableViewCell: UITableViewCell {
     @IBOutlet var iconImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var personLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,8 +20,9 @@ class CommunityTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    public func setInfo(name: String, image: UIImage) {
-        nameLabel.text  = name
-        iconImage.image = image
+    public func setInfo(name: String, image: UIImage, person: Int) {
+        nameLabel.text   = name
+        iconImage.image  = image
+        personLabel.text = "\(person)人が在籍しているコミュニティーです"
     }
 }

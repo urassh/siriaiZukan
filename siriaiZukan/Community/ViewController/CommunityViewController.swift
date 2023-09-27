@@ -56,7 +56,7 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "communityCell", for: indexPath) as! CommunityTableViewCell
         let community = communityArray[indexPath.row]
         let icon      = viewModel.loadImage(community: community) ?? UIImage(systemName: "person.fill")
-        cell.setInfo(name: community.name, image: icon!)
+        cell.setInfo(name: community.name, image: icon!, person: community.persons)
         return cell
     }
     

@@ -17,8 +17,23 @@ class MemberViewModel {
         self.imageResistry = ImageResistry()
     }
     
-    public func getMembers() -> Array<Member> {
-        return repository.getAllitems()
+    public func getMember(_ community: Community, _ memberId: String?) -> Member? {
+        guard let ID = memberId else { return nil }
+        
+        let memberArray = getMembers(community: community)
+        for member in memberArray {
+            if member.id == ID {
+                return member
+            }
+        }
+        
+        return nil
+    }
+    
+    public func getMembers(community: Community) -> Array<Member> {
+        return repository.getAllitems().filter {
+            $0.community?.id == community.id
+        }
     }
     
     public func appendMember(_ member: Member) {
@@ -31,16 +46,22 @@ class MemberViewModel {
     }
     
     public func updateMember(before: Member, after: Member) {
-        imageResistry.deleteImage(id: before.id)
+        after.id = before.id
+        after.community = before.community
         repository.update(before: before, after: after)
     }
     
     public func saveImage(image: UIImage, id: String) -> String? {
+        if loadImage(id) != nil {
+            ///過去の古い画像が存在していたら削除する。
+            imageResistry.deleteImage(id: id)
+        }
+        
         guard let image = imageResistry.saveImage(image: image, id: id) else { return nil }
         return image
     }
     
-    public func loadImage(member: Member) -> UIImage? {
-        imageResistry.loadImage(id: member.id)
+    public func loadImage(_ id: String) -> UIImage? {
+        imageResistry.loadImage(id: id)
     }
 }

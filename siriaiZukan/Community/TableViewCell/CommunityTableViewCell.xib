@@ -24,17 +24,26 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CommunityName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X77-mH-R6H">
-                        <rect key="frame" x="84" y="28" width="236" height="24"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <rect key="frame" x="84" y="23.333333333333332" width="236" height="33.666666666666671"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                         <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-8p-6hd">
+                        <rect key="frame" x="84" y="55.666666666666664" width="220" height="14.333333333333336"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.25" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="2zg-8p-6hd" secondAttribute="trailing" constant="16" id="4eI-cR-u9s"/>
                     <constraint firstItem="Mkd-Jc-bZo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="8zX-YK-01w"/>
-                    <constraint firstItem="X77-mH-R6H" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="RsE-lu-NB9"/>
+                    <constraint firstItem="X77-mH-R6H" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Jfh-9V-jX1"/>
                     <constraint firstAttribute="trailing" secondItem="X77-mH-R6H" secondAttribute="trailing" id="Yau-aD-AYZ"/>
                     <constraint firstItem="Mkd-Jc-bZo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZWT-uN-NGu"/>
+                    <constraint firstAttribute="bottom" secondItem="2zg-8p-6hd" secondAttribute="bottom" constant="10" id="dAd-HL-3Pq"/>
+                    <constraint firstItem="2zg-8p-6hd" firstAttribute="leading" secondItem="Mkd-Jc-bZo" secondAttribute="trailing" constant="12" id="gyV-7l-fHK"/>
                     <constraint firstItem="X77-mH-R6H" firstAttribute="leading" secondItem="Mkd-Jc-bZo" secondAttribute="trailing" constant="12" id="wVs-Yu-2XO"/>
                 </constraints>
             </tableViewCellContentView>
@@ -42,6 +51,7 @@
             <connections>
                 <outlet property="iconImage" destination="Mkd-Jc-bZo" id="RsT-GB-gjW"/>
                 <outlet property="nameLabel" destination="X77-mH-R6H" id="NhK-kR-Dt9"/>
+                <outlet property="personLabel" destination="2zg-8p-6hd" id="Qfk-di-zkt"/>
             </connections>
             <point key="canvasLocation" x="126.71755725190839" y="25.35211267605634"/>
         </tableViewCell>

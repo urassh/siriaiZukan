@@ -57,6 +57,7 @@ class MemberViewController: UIViewController {
     }
     
     private func reloadView() {
+        memberArray = viewModel.getMembers(community: community)
         registerLabel.text = memberArray.count == community.persons ? "Complete!!" : "\(memberArray.count)人登録 (\(community.persons)人中)"
         memberArray = viewModel.getMembers(community: community)
         memberCollectionView.reloadData()

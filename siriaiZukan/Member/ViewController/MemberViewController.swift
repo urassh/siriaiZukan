@@ -107,6 +107,8 @@ extension MemberViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print("member: \(memberArray[indexPath.row])")
         transDetailView(member: memberArray[indexPath.row])
     }
 }

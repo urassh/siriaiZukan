@@ -32,7 +32,7 @@ class MemberViewModel {
     
     public func getMembers(community: Community) -> Array<Member> {
         return repository.getAllitems().filter {
-            $0.community?.id == community.id
+            $0.communityID == community.id
         }
     }
     
@@ -47,13 +47,12 @@ class MemberViewModel {
     
     public func updateMember(before: Member, after: Member) {
         after.id = before.id
-        after.community = before.community
+        after.communityID = before.communityID
         repository.update(before: before, after: after)
     }
     
     public func saveImage(image: UIImage, id: String) -> String? {
         if loadImage(id) != nil {
-            ///過去の古い画像が存在していたら削除する。
             imageResistry.deleteImage(id: id)
         }
         

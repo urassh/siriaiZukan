@@ -49,8 +49,6 @@ class MemberDetailViewController: UIViewController {
     }
     
     private func reloadView() {
-        print("community: \(community)")
-        print("memberId : \(memberId)")
         member = viewModel.getMember(community, memberId)
         
         if let unwrapImage = viewModel.loadImage(member.id) {
@@ -80,7 +78,6 @@ class MemberDetailViewController: UIViewController {
 extension MemberDetailViewController: UIAdaptivePresentationControllerDelegate, UITextViewDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         reloadView()
-        print("call presentationControllerDidDismiss")
     }
     
     func textViewDidChange(_ textView: UITextView) {

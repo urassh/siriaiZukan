@@ -55,7 +55,7 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "communityCell", for: indexPath) as! CommunityTableViewCell
         let community = communityArray[indexPath.row]
-        let icon      = viewModel.loadImage(community: community) ?? UIImage(systemName: "person.fill")
+        let icon      = viewModel.loadImage(community.id) ?? UIImage(systemName: "person.fill")
         cell.setInfo(name: community.name, image: icon!, person: community.persons)
         return cell
     }
@@ -68,7 +68,7 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         let editAction = UIContextualAction(style: .normal, title: "Edit") { [self] (action, view, completionHandler) in
             let storyboard: UIStoryboard = self.storyboard!
             let communityEditView = storyboard.instantiateViewController(withIdentifier: "communityCreateVC") as! CommunityEditViewController
-            communityEditView.editCommunity = communityArray[indexPath.row]
+            communityEditView.previousCommunity = communityArray[indexPath.row]
             self.navigationController?.pushViewController(communityEditView, animated: true)
             completionHandler(true)
         }

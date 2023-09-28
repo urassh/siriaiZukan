@@ -28,7 +28,9 @@ class MemberEditViewController: UIViewController {
         previousMember = viewModel.getMember(community, memberId)
         member = Member()
         
-        print("member: ", member)
+        print("member: \(member)")
+        print("previousMember : \(previousMember)")
+        
         
         if let editingMember = previousMember,
             let loadedImage = viewModel.loadImage(editingMember.id)
@@ -51,23 +53,28 @@ class MemberEditViewController: UIViewController {
         showAlert()
     }
     
+    @IBAction func didTapView(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     @IBAction func registerButton() {
         guard let unwrapNickName = nickNameTextField.text else { return }
         guard let unwrapRealName = realNameTextField.text else { return }
         guard let unwrapImage    = iconImage.image        else { return }
         let unwrapAbout = aboutTextView.text ?? ""
         
-        member.id        = previousMember?.id ?? ""
         member.nickName  = unwrapNickName
         member.name      = unwrapRealName
-        member.image     = viewModel.saveImage(image: unwrapImage, id: member.id)!
-        member.community = community
+        member.communityID = community.id
         member.about     = unwrapAbout
         
-        if previousMember == nil {
-            viewModel.appendMember(member)
-        } else {
+        if let previous = previousMember {
+            member.image = viewModel.saveImage(image: unwrapImage, id: previous.id)!
             viewModel.updateMember(before: previousMember!, after: member)
+            
+        } else {
+            member.image = viewModel.saveImage(image: unwrapImage, id: member.id)!
+            viewModel.appendMember(member)
         }
         
         if let presentationController = presentationController {

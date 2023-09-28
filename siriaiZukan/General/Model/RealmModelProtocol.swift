@@ -10,6 +10,7 @@ import Realm
 import UIKit
 
 protocol RealmModel: Sequence, RealmSwiftObject {
-    var name: String { set get }
+    var id: String    { set get }
+    var name: String  { set get }
     var image: String { set get }
 }

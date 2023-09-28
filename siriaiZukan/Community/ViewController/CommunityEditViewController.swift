@@ -13,27 +13,27 @@ class CommunityEditViewController: UIViewController {
     @IBOutlet var nameTextField: UITextField!
     @IBOutlet var personTextField: UITextField!
     
-    public var editCommunity: Community?
+    public var previousCommunity: Community?
+    private var community: Community!
     private let picker    = UIImagePickerController()
     private let viewModel = CommunityViewModel()
-    private var newCommunity: Community!
-    private var capturedImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newCommunity = Community()
+        community = Community()
         
-        if editCommunity != nil {
-            nameTextField.text = editCommunity!.name
-            personTextField.text = String(editCommunity!.persons)
+
+        if let unwrapCommunity = previousCommunity,
+           let unwrapImage = viewModel.loadImage(unwrapCommunity.id)
+        {
+            iconImage.image = treatIconImage(unwrapImage)
             defaultLabel.isHidden = true
-            if let unwrapImage = viewModel.loadImage(community: editCommunity!) {
-                iconImage.image = treatIconImage(unwrapImage)
-            } else {
-                iconImage.image = treatIconImage(UIImage(systemName: "person.fill")!)
-            }
+        } else {
+            iconImage.image = treatIconImage(UIImage(systemName: "person.fill")!)
         }
         
+        nameTextField.text = previousCommunity?.name
+        personTextField.text = String(previousCommunity?.persons ?? 0)
         picker.delegate = self
     }
     
@@ -41,20 +41,25 @@ class CommunityEditViewController: UIViewController {
         showAlert()
     }
     
+    @IBAction func didTapView(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     @IBAction func registerTapped() {
-        guard let unwrapName  = nameTextField.text else { return }
         guard let unwrapImage = iconImage.image    else { return }
+        guard let unwrapName  = nameTextField.text else { return }
         guard let unwrapPersons = personTextField.text else { return }
-        guard let savedImage  = viewModel.saveImage(image: unwrapImage, id: newCommunity.id) else { return }
+        guard let savedImage  = viewModel.saveImage(image: unwrapImage, id: community.id) else { return }
         
-        newCommunity.name  = unwrapName
-        newCommunity.image = savedImage
-        newCommunity.persons = Int(unwrapPersons) ?? 0
+        community.name  = unwrapName
+        community.persons = Int(unwrapPersons) ?? 0
         
-        if editCommunity == nil {
-            viewModel.appendCommunity(newCommunity)
+        if let previous = previousCommunity {
+            community.image = viewModel.saveImage(image: unwrapImage, id: previous.id)!
+            viewModel.updateCommunity(before: previousCommunity!, after: community)
         } else {
-            viewModel.updateCommunity(before: editCommunity!, after: newCommunity)
+            community.image = viewModel.saveImage(image: unwrapImage, id: community.id)!
+            viewModel.appendCommunity(community)
         }
         
         let storyboard: UIStoryboard = self.storyboard!
@@ -94,9 +99,7 @@ class CommunityEditViewController: UIViewController {
 extension CommunityEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let firstImage = info[.originalImage] as! UIImage
-        capturedImage = treatIconImage(firstImage)
-        iconImage.image = capturedImage
-        newCommunity.image = viewModel.saveImage(image: firstImage, id: newCommunity.id)!
+        iconImage.image = treatIconImage(firstImage)
         defaultLabel.isHidden = true
         self.dismiss(animated: true)
     }

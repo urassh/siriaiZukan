@@ -29,7 +29,7 @@ class CommunityViewModel {
         let memberRepository = RealmRepository<Member>()
         
         let deleteMembers = memberRepository.getAllitems().filter {
-            $0.community?.id == community.id
+            $0.communityID == community.id
         }
         
         for member in deleteMembers {
@@ -41,17 +41,20 @@ class CommunityViewModel {
     }
     
     public func updateCommunity(before: Community, after: Community) {
-        imageResistry.deleteImage(id: before.id)
+        after.id = before.id
         repository.update(before: before, after: after)
     }
     
     public func saveImage(image: UIImage, id: String) -> String? {
-        print("community id: \(id)")
+        if loadImage(id) != nil {
+            imageResistry.deleteImage(id: id)
+        }
+        
         guard let image = imageResistry.saveImage(image: image, id: id) else { return nil }
         return image
     }
     
-    public func loadImage(community: Community) -> UIImage? {
-        imageResistry.loadImage(id: community.id)
+    public func loadImage(_ id: String) -> UIImage? {
+        imageResistry.loadImage(id: id)
     }
 }

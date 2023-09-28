@@ -15,10 +15,8 @@ class Member: Object, RealmModel, Sequence {
     @Persisted var about: String
     @Persisted var communityID: String
 
-    // RealmSwiftのListを使用して要素を格納
     var elements: List<Member> = List<Member>()
-
-    // Sequenceプロトコルに必要な要素を提供するメソッド
+    
     func makeIterator() -> some IteratorProtocol {
         return elements.makeIterator()
     }

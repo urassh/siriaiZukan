@@ -83,7 +83,6 @@ extension CommunityViewController: UITableViewDataSource, UITableViewDelegate {
         editAction.image   = UIImage(systemName: "pencil",     withConfiguration: UIImage.SymbolConfiguration(textStyle: .largeTitle))
         deleteAction.image = UIImage(systemName: "trash.fill", withConfiguration: UIImage.SymbolConfiguration(textStyle: .largeTitle))
         
-        // 定義したアクションをセット
         return UISwipeActionsConfiguration(actions: [deleteAction, editAction])
     }
 }

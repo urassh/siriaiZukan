@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-///Realmで画像を保存するために、UIImageのままでは保存できないので、
-///画像本体はDocumentディレクトリに保存し、そのパスの文字列をRealmで保存する。
 class ImageResistry {
     private let fileManager = FileManager.default
     
@@ -17,13 +15,11 @@ class ImageResistry {
         print("fileName : \(fileName)")
         
         do {
-            // Docmentsフォルダ
             let docsUrl = try fileManager.url(
                 for: .documentDirectory,
                 in: .userDomainMask,
                 appropriateFor: nil,
                 create: false)
-            // URLを構築
             let url = docsUrl.appendingPathComponent(fileName)
             print(url)
             return url

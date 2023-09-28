@@ -49,7 +49,6 @@ class CommunityEditViewController: UIViewController {
         guard let unwrapImage = iconImage.image    else { return }
         guard let unwrapName  = nameTextField.text else { return }
         guard let unwrapPersons = personTextField.text else { return }
-        guard let savedImage  = viewModel.saveImage(image: unwrapImage, id: community.id) else { return }
         
         community.name  = unwrapName
         community.persons = Int(unwrapPersons) ?? 0

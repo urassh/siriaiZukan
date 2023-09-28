@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1035B05C2ABD5A5D0074DDA4 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1035B05B2ABD5A5D0074DDA4 /* Member.swift */; };
-		1035B05E2ABD5E280074DDA4 /* gradationColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1035B05D2ABD5E280074DDA4 /* gradationColor.swift */; };
 		103C82312ABDC25600997DE3 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C822F2ABDC25600997DE3 /* MemberCollectionViewCell.swift */; };
 		103C82322ABDC25600997DE3 /* MemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103C82302ABDC25600997DE3 /* MemberCollectionViewCell.xib */; };
 		103C82352ABDCDB000997DE3 /* CollectionBackgroundCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */; };
@@ -37,7 +36,6 @@
 
 /* Begin PBXFileReference section */
 		1035B05B2ABD5A5D0074DDA4 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
-		1035B05D2ABD5E280074DDA4 /* gradationColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradationColor.swift; sourceTree = "<group>"; };
 		103C822F2ABDC25600997DE3 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		103C82302ABDC25600997DE3 /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBackgroundCard.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 			children = (
 				109B02B92ABB0C2200E6E8AE /* Model */,
 				109B02CD2ABBCD2E00E6E8AE /* Extensions.swift */,
-				1035B05D2ABD5E280074DDA4 /* gradationColor.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -310,7 +307,6 @@
 				109B02C72ABB121B00E6E8AE /* Community.swift in Sources */,
 				109B02A92ABAAAFC00E6E8AE /* CommunityEditViewController.swift in Sources */,
 				109B02BF2ABB0DE300E6E8AE /* RealmModelProtocol.swift in Sources */,
-				1035B05E2ABD5E280074DDA4 /* gradationColor.swift in Sources */,
 				103C82352ABDCDB000997DE3 /* CollectionBackgroundCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

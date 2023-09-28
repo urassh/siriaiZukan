@@ -25,7 +25,6 @@ class DrawView: UIView {
         UIColor(red: 1, green: 1, blue: 1, alpha: 0.5).setStroke()
         rectangle.lineWidth = 6.0
         
-        // 背景と線を塗りつぶす
         rectangle.fill()
         rectangle.stroke()
         

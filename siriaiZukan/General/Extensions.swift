@@ -20,10 +20,23 @@ extension UIImage {
     }
 
     func resizable(toSize newSize: CGSize) -> UIImage {
+        let aspectWidth = newSize.width / size.width
+        let aspectHeight = newSize.height / size.height
+        let scaleFactor = max(aspectWidth, aspectHeight)
+
+        let scaledSize = CGSize(width: size.width * scaleFactor, height: size.height * scaleFactor)
+
         UIGraphicsBeginImageContextWithOptions(newSize, false, UIScreen.main.scale)
-        self.draw(in: CGRect(origin: .zero, size: newSize))
+
+        let x = (scaledSize.width - newSize.width) / 2.0
+        let y = (scaledSize.height - newSize.height) / 2.0
+        let rect = CGRect(x: -x, y: -y, width: scaledSize.width, height: scaledSize.height)
+
+        self.draw(in: rect)
+
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+
         return newImage ?? self
     }
 }

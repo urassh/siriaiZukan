@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 
 
@@ -46,14 +47,15 @@ class MemberViewController: UIViewController {
     }
     
     private func transDetailView(member: Member) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let memberDetailVC = storyboard.instantiateViewController(withIdentifier: "MemberDetailViewController") as! MemberDetailViewController
-        
-        memberDetailVC.memberId = member.id
-        memberDetailVC.community = community
-        memberDetailVC.modalPresentationStyle = .formSheet
-        memberDetailVC.presentationController?.delegate = self
-        present(memberDetailVC, animated: true)
+        let detailViewController = UIHostingController(rootView: BackBlackView {
+            DetailCardView(community: community, memberId: member.id)
+                .transition(.slide)
+        })
+        detailViewController.modalTransitionStyle = .crossDissolve
+        detailViewController.modalPresentationStyle = .overFullScreen
+        detailViewController.view.backgroundColor = .clear
+        detailViewController.presentationController?.delegate = self
+        self.present(detailViewController, animated: true)
     }
     
     private func reloadView() {

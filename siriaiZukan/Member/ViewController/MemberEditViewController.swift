@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MemberEditViewController: UIViewController {
     @IBOutlet var iconImage: UIImageView!
@@ -27,10 +28,6 @@ class MemberEditViewController: UIViewController {
         super.viewDidLoad()
         previousMember = viewModel.getMember(community, memberId)
         member = Member()
-        
-        print("member: \(member)")
-        print("previousMember : \(previousMember)")
-        
         
         if let editingMember = previousMember,
             let loadedImage = viewModel.loadImage(editingMember.id)
@@ -121,5 +118,36 @@ extension MemberEditViewController: UIImagePickerControllerDelegate, UINavigatio
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+}
+
+struct MemberEditView: UIViewControllerRepresentable {
+    public var community: Community
+    public var memberId: String
+    private let editVC = MemberEditViewController()
+    
+    func makeUIViewController(context: Context) -> MemberEditViewController {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let memberEditVC = storyboard.instantiateViewController(withIdentifier: "MemberEditViewController") as! MemberEditViewController
+            memberEditVC.community = community
+            memberEditVC.memberId  = memberId
+            memberEditVC.modalPresentationStyle = .formSheet
+            memberEditVC.presentationController?.delegate = context.coordinator
+            return memberEditVC
+        }
+    
+    func updateUIViewController(_ uiViewController: MemberEditViewController, context: Context) {
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        return Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, UIAdaptivePresentationControllerDelegate {
+        var parent: MemberEditView
+
+        init(_ parent: MemberEditView) {
+            self.parent = parent
+        }
     }
 }

@@ -11,6 +11,8 @@
 		103C82312ABDC25600997DE3 /* MemberCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C822F2ABDC25600997DE3 /* MemberCollectionViewCell.swift */; };
 		103C82322ABDC25600997DE3 /* MemberCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 103C82302ABDC25600997DE3 /* MemberCollectionViewCell.xib */; };
 		103C82352ABDCDB000997DE3 /* CollectionBackgroundCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */; };
+		1045526A2ACCE5F20051C86E /* DetailCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104552692ACCE5F20051C86E /* DetailCardView.swift */; };
+		1045526C2ACCED990051C86E /* BackBlackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1045526B2ACCED990051C86E /* BackBlackView.swift */; };
 		105BE1742ABEA7DF00997CEE /* MemberEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105BE1732ABEA7DF00997CEE /* MemberEditViewController.swift */; };
 		105BE1762ABEA7EF00997CEE /* MemberDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105BE1752ABEA7EF00997CEE /* MemberDetailViewController.swift */; };
 		105BE1782ABEB8DF00997CEE /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105BE1772ABEB8DF00997CEE /* MemberViewModel.swift */; };
@@ -39,6 +41,8 @@
 		103C822F2ABDC25600997DE3 /* MemberCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCollectionViewCell.swift; sourceTree = "<group>"; };
 		103C82302ABDC25600997DE3 /* MemberCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCollectionViewCell.xib; sourceTree = "<group>"; };
 		103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionBackgroundCard.swift; sourceTree = "<group>"; };
+		104552692ACCE5F20051C86E /* DetailCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCardView.swift; sourceTree = "<group>"; };
+		1045526B2ACCED990051C86E /* BackBlackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackBlackView.swift; sourceTree = "<group>"; };
 		105BE1732ABEA7DF00997CEE /* MemberEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberEditViewController.swift; sourceTree = "<group>"; };
 		105BE1752ABEA7EF00997CEE /* MemberDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDetailViewController.swift; sourceTree = "<group>"; };
 		105BE1772ABEB8DF00997CEE /* MemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				103C82342ABDCDB000997DE3 /* CollectionBackgroundCard.swift */,
+				104552692ACCE5F20051C86E /* DetailCardView.swift */,
 			);
 			path = DrawView;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			children = (
 				109B02B92ABB0C2200E6E8AE /* Model */,
 				109B02CD2ABBCD2E00E6E8AE /* Extensions.swift */,
+				1045526B2ACCED990051C86E /* BackBlackView.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -293,6 +299,7 @@
 				109B02A72ABAAA7800E6E8AE /* MemberViewController.swift in Sources */,
 				109B02952ABAA98100E6E8AE /* CommunityViewController.swift in Sources */,
 				109B02C92ABB197300E6E8AE /* ImageResistry.swift in Sources */,
+				1045526C2ACCED990051C86E /* BackBlackView.swift in Sources */,
 				109B02912ABAA98100E6E8AE /* AppDelegate.swift in Sources */,
 				109B02C52ABB112100E6E8AE /* CommunityViewModel.swift in Sources */,
 				109B02AE2ABAAC0400E6E8AE /* CommunityTableViewCell.swift in Sources */,
@@ -304,6 +311,7 @@
 				105BE1762ABEA7EF00997CEE /* MemberDetailViewController.swift in Sources */,
 				109B02932ABAA98100E6E8AE /* SceneDelegate.swift in Sources */,
 				1035B05C2ABD5A5D0074DDA4 /* Member.swift in Sources */,
+				1045526A2ACCE5F20051C86E /* DetailCardView.swift in Sources */,
 				109B02C72ABB121B00E6E8AE /* Community.swift in Sources */,
 				109B02A92ABAAAFC00E6E8AE /* CommunityEditViewController.swift in Sources */,
 				109B02BF2ABB0DE300E6E8AE /* RealmModelProtocol.swift in Sources */,

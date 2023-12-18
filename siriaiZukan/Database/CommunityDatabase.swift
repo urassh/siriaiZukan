@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 public enum CommunityDatabase: DatabaseProtocol {
-    private static let _communitySubject: CurrentValueSubject<[Community], Error> = .init([])
+    private static let _communitySubject: CurrentValueSubject<[Community], Error> = .init(Sample.communities)
     
     static func entities() -> AnyPublisher<[Community], Error> {
         return _communitySubject.eraseToAnyPublisher()

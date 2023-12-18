@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class CommunityViewModel<CommunityDatabase: DatabaseProtocol>: ObservableObject {
-    @Published var communities: [Community] = Sample.communities
+    @Published var communities: [Community] = []
     @Published var hasWriteError: Bool = false
     private var isActivate: Bool = false
     private var cancellable: Set<AnyCancellable> = []

@@ -17,7 +17,7 @@ struct MemberDetailView: View {
         "GradationColor_E": .colorE,
     ]
     
-    @EnvironmentObject var viewState: MemberViewState
+    @EnvironmentObject var viewState: MemberViewModel
     
     var body: some View {
         NavigationStack {

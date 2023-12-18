@@ -20,7 +20,7 @@ struct MemberView: View {
     public var community: Community
     private let members: [Member] = [.sample1, .sample2, .sample3, .sample1, .sample2, .sample3]
     private let columns: [GridItem] = [GridItem(.adaptive(minimum: 100, maximum: 150))]
-    @EnvironmentObject var viewState: MemberViewState
+    @EnvironmentObject var viewState: MemberViewModel
     
     private var showGround: Bool {
         viewState.showDetailView || viewState.showEditView
@@ -87,5 +87,5 @@ struct MemberView: View {
 
 #Preview {
     MemberView(community: .sample1)
-        .environmentObject(MemberViewState())
+        .environmentObject(MemberViewModel())
 }

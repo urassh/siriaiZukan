@@ -16,7 +16,7 @@ struct MemberEditView: View {
         "GradationColor_D": .colorD,
         "GradationColor_E": .colorE,
     ]
-    @EnvironmentObject var viewState: MemberViewState
+    @EnvironmentObject var viewState: MemberViewModel
     
     @State var name: String = ""
     @State var realName: String = ""

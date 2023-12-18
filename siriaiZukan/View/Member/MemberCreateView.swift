@@ -17,14 +17,12 @@ struct MemberCreateView: View {
         "GradationColor_D": .colorD,
         "GradationColor_E": .colorE,
     ]
-    @EnvironmentObject var viewState: MemberViewState
+    @EnvironmentObject var viewState: MemberViewModel
     
     @State var name: String = ""
     @State var realName: String = ""
     @State var friendship: CGFloat = 0.0
     @State var aboutText: String = ""
-    
-    public let isNewMember: Bool
     
     var body: some View {
         NavigationStack {
@@ -126,4 +124,8 @@ struct MemberCreateView: View {
             )
         }
     }
+}
+
+#Preview {
+    MemberCreateView()
 }

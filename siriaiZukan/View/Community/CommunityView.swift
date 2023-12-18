@@ -20,7 +20,7 @@ struct CommunityView: View {
                 List(communities, id: \.self) { commuunity in
                     NavigationLink(destination: {
                         MemberView(community: commuunity)
-                            .environmentObject(MemberViewState())
+                            .environmentObject(MemberViewModel())
                     }, label: {
                         Image(systemName: "person.fill")
                             .resizable()

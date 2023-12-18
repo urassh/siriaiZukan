@@ -43,7 +43,7 @@ struct MemberDetailView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
-                            .overlay(CircularProgressBar(parameter: Friendship(viewState.selectMember!.friendship).getParameter()))
+                            .overlay(CircularProgressBar(parameter: viewState.selectMember!.friendship.getParameter()))
                             .frame(maxHeight: 160)
                         
                         Button(action: {

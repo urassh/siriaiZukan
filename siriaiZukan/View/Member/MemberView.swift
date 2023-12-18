@@ -17,13 +17,12 @@ extension AnyTransition {
 }
 
 struct MemberView: View {
-    public var community: Community
-    private let members: [Member] = [.sample1, .sample2, .sample3, .sample1, .sample2, .sample3]
+    @StateObject var viewModel: MemberViewModel
+    
     private let columns: [GridItem] = [GridItem(.adaptive(minimum: 100, maximum: 150))]
-    @EnvironmentObject var viewState: MemberViewModel
     
     private var showGround: Bool {
-        viewState.showDetailView || viewState.showEditView
+        viewModel.showDetailView || viewModel.showEditView
     }
     
     @ViewBuilder
@@ -37,12 +36,12 @@ struct MemberView: View {
             ZStack {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 24) {
-                        ForEach(members) { member in
+                        ForEach(viewModel.members) { member in
                             CardView(member: member)
                                 .onTapGesture {
-                                    viewState.selectMember = member
+                                    viewModel.selectMember = member
                                     withAnimation {
-                                        viewState.showDetailView = true
+                                        viewModel.showDetailView = true
                                     }
                                 }
                         }
@@ -54,24 +53,24 @@ struct MemberView: View {
                     blackGround()
                         .onTapGesture {
                             withAnimation {
-                                viewState.showDetailView = false
-                                viewState.showEditView   = false
+                                viewModel.showDetailView = false
+                                viewModel.showEditView   = false
                             }
                         }
                 }
                 
-                if viewState.showDetailView {
+                if viewModel.showDetailView {
                     MemberDetailView()
                         .transition(.cardTransition())
                 }
                 
-                if viewState.showEditView {
+                if viewModel.showEditView {
                     MemberEditView()
                         .transition(.cardTransition())
                 }
             }
         }
-        .navigationTitle(community.name)
+        .navigationTitle(viewModel.community.name)
         .toolbar(content: {
             NavigationLink(destination: {
                 CommunityEditView(nameTextField: "")
@@ -86,6 +85,5 @@ struct MemberView: View {
 }
 
 #Preview {
-    MemberView(community: .sample1)
-        .environmentObject(MemberViewModel())
+    MemberView(viewModel: .init(community: Sample.community1))
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct siriaiZukanApp: App {
     var body: some Scene {
         WindowGroup {
-            CommunityView()
+            CommunityView(viewModel: .init())
         }
     }
 }

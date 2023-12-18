@@ -21,7 +21,7 @@ struct MemberCreateView: View {
     
     @State var name: String = ""
     @State var realName: String = ""
-    @State var friendship: CGFloat = 0.0
+    @State var friendship: Float = 0.0
     @State var aboutText: String = ""
     
     var body: some View {
@@ -36,7 +36,7 @@ struct MemberCreateView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
-                        .overlay(CircularProgressBar(parameter: Friendship(Float(friendship)).getParameter()))
+                        .overlay(CircularProgressBar(parameter: Float(friendship)))
                         .frame(maxHeight: 160)
                     
                     Spacer()

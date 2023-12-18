@@ -8,19 +8,14 @@
 import SwiftUI
 
 struct CommunityView: View {
-    private let communities = [
-        Community(name: "Life is Tech!", imagePath: ""),
-        Community(name: "Tokyo City Univercity", imagePath: ""),
-        Community(name: "Gast", imagePath: "")
-    ];
+    @StateObject var viewModel: CommunityViewModel<CommunityDatabase>
     
     var body: some View {
         NavigationStack {
             ZStack {
-                List(communities, id: \.self) { commuunity in
+                List(viewModel.communities) { commuunity in
                     NavigationLink(destination: {
-                        MemberView(community: commuunity)
-                            .environmentObject(MemberViewModel())
+                        MemberView(viewModel: .init(community: commuunity))
                     }, label: {
                         Image(systemName: "person.fill")
                             .resizable()
@@ -59,9 +54,11 @@ struct CommunityView: View {
                 })
             }
         }
+        .onAppear {
+            viewModel.activate()
+        }
+        .onDisappear {
+            viewModel.deactivate()
+        }
     }
-}
-
-#Preview {
-    CommunityView()
 }

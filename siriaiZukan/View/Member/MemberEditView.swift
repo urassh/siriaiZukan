@@ -35,7 +35,7 @@ struct MemberEditView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
-                        .overlay(CircularProgressBar(parameter: Friendship(Float(friendship)).getParameter()))
+                        .overlay(CircularProgressBar(parameter: Float(friendship)))
                         .frame(maxHeight: 160)
                     
                     Spacer()

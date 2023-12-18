@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class CommunityViewModel<CommunityDatabase: DatabaseProtocol>: ObservableObject {
-    @Published var communities: [Community] = []
+    @Published var communities: [Community] = Sample.communities
     @Published var hasWriteError: Bool = false
     private var isActivate: Bool = false
     private var cancellable: Set<AnyCancellable> = []
@@ -29,4 +29,20 @@ class CommunityViewModel<CommunityDatabase: DatabaseProtocol>: ObservableObject 
         }
     }
     
+    func activate() {
+        if isActivate { return }
+        isActivate = true
+        
+        CommunityDatabase.entities().sink(receiveCompletion: { _ in
+            //TODO
+        }, receiveValue: { communities in
+            self.communities = communities as! [Community]
+        })
+        .store(in: &cancellable)
+    }
+    
+    func deactivate() {
+        guard isActivate else { return }
+        cancellable.removeAll()
+    }
 }

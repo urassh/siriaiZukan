@@ -8,7 +8,14 @@
 import Foundation
 
 class MemberViewModel: ObservableObject {
-    @Published var selectMember: Member?
+    @Published var members: [Member] = []
     @Published var showDetailView: Bool = false
-    @Published var showEditView: Bool   = false
+    @Published var showEditView: Bool = false
+    @Published var selectMember: Member?
+    
+    let community: Community
+    
+    init(community: Community) {
+        self.community = community
+    }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-public enum CommunityDatabase: DatabaseProtocol {
+struct CommunityDatabase: DatabaseProtocol {
     private static let _communitySubject: CurrentValueSubject<[Community], Error> = .init(Sample.communities)
     
     static func entities() -> AnyPublisher<[Community], Error> {
@@ -25,8 +25,4 @@ public enum CommunityDatabase: DatabaseProtocol {
             }
         }
     }
-}
-
-struct DummyError: Error {
-    
 }

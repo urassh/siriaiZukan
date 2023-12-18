@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-extension AnyTransition {
-    static func cardTransition() -> AnyTransition {
-        AnyTransition.asymmetric(
-            insertion: AnyTransition.opacity.combined(with: .offset(x: 100, y: 50)),
-            removal  : AnyTransition.opacity.combined(with: .offset(x: -100, y: -50))
-        )
-    }
-}
-
 struct MemberView: View {
     @StateObject var viewModel: MemberViewModel
     
@@ -81,9 +72,11 @@ struct MemberView: View {
                     .frame(width: 24, height: 24, alignment: .leading)
             })
         })
+        .onAppear {
+            viewModel.activate()
+        }
+        .onDisappear {
+            viewModel.deactivate()
+        }
     }
-}
-
-#Preview {
-    MemberView(viewModel: .init(community: Sample.community1))
 }

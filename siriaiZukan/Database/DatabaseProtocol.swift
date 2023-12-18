@@ -13,3 +13,7 @@ protocol DatabaseProtocol {
     static func entities() -> AnyPublisher<[Entity], Error>
     static func postEntity(_ enetity: Entity, completion: @escaping (Result<Void, Error>) -> Void)
 }
+
+struct DummyError: Error {
+    
+}

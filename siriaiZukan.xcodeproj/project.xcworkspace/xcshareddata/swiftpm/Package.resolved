@@ -1,12 +1,21 @@
 {
   "pins" : [
     {
+      "identity" : "gradationcolor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/urassh/GradationColor.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "68299acab5c7fc9cc3917f88206c20eb05c4c9e5"
+      }
+    },
+    {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-core.git",
       "state" : {
-        "revision" : "1eb93c9619f6a05b5a91c2719690606016802e0b",
-        "version" : "13.20.1"
+        "revision" : "c569bec4d04da84030d94f376437bc4efda3686b",
+        "version" : "13.23.1"
       }
     },
     {
@@ -15,7 +24,7 @@
       "location" : "https://github.com/realm/realm-swift",
       "state" : {
         "branch" : "master",
-        "revision" : "987523254e28254652cab86b4e558a96231bbfe3"
+        "revision" : "6b992e508b1fab07d47775f2fd7485fd5f110893"
       }
     }
   ],

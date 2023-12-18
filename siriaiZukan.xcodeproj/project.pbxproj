@@ -30,6 +30,7 @@
 		106A60E92B2F1A4600D9875B /* MemberCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106A60E82B2F1A4600D9875B /* MemberCreateView.swift */; };
 		10A975AC2B2FD42C00DFEAEE /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A975AB2B2FD42C00DFEAEE /* DatabaseProtocol.swift */; };
 		10A975AE2B2FD59000DFEAEE /* CommunityDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A975AD2B2FD59000DFEAEE /* CommunityDatabase.swift */; };
+		10A975B02B2FD73100DFEAEE /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A975AF2B2FD73100DFEAEE /* CommunityViewModel.swift */; };
 		10B1C6902B29E61600A0F60C /* MemberViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1C68F2B29E61500A0F60C /* MemberViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,7 @@
 		106A60E82B2F1A4600D9875B /* MemberCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCreateView.swift; sourceTree = "<group>"; };
 		10A975AB2B2FD42C00DFEAEE /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
 		10A975AD2B2FD59000DFEAEE /* CommunityDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDatabase.swift; sourceTree = "<group>"; };
+		10A975AF2B2FD73100DFEAEE /* CommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewModel.swift; sourceTree = "<group>"; };
 		10B1C68F2B29E61500A0F60C /* MemberViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				10B1C68F2B29E61500A0F60C /* MemberViewModel.swift */,
+				10A975AF2B2FD73100DFEAEE /* CommunityViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				1001391C2AFC9D9E0037EF36 /* MemberView.swift in Sources */,
 				10B1C6902B29E61600A0F60C /* MemberViewModel.swift in Sources */,
 				102C6FC62B04919800B2B05A /* CircularProgressBar.swift in Sources */,
+				10A975B02B2FD73100DFEAEE /* CommunityViewModel.swift in Sources */,
 				1001396E2B0075610037EF36 /* MemberDetailView.swift in Sources */,
 				10A975AC2B2FD42C00DFEAEE /* DatabaseProtocol.swift in Sources */,
 				1001391E2AFCA0330037EF36 /* CommunityEditView.swift in Sources */,

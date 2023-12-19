@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MemberView: View {
-    @StateObject var viewModel: MemberViewModel
+    @ObservedObject var viewModel: MemberViewModel
     
     private let columns: [GridItem] = [GridItem(.adaptive(minimum: 100, maximum: 150))]
     
@@ -51,7 +51,7 @@ struct MemberView: View {
                 }
                 
                 if viewModel.showDetailView {
-                    MemberDetailView()
+                    MemberDetailView(viewModel: $viewModel)
                         .transition(.cardTransition())
                 }
                 

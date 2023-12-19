@@ -16,7 +16,6 @@ class MemberViewModel: ObservableObject {
     @Published var hasWriteError: Bool = false
     private var isActivate: Bool = false
     private var cancellable: Set<AnyCancellable> = []
-    
     let community: Community
     
     init(community: Community) {

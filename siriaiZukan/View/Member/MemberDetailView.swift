@@ -9,6 +9,8 @@ import SwiftUI
 import MyLibrary
 
 struct MemberDetailView: View {
+    @Binding var viewModel: MemberViewModel
+    
     private let gradationColors: [String: GradationColor] = [
         "GradationColor_A": .colorA,
         "GradationColor_B": .colorB,
@@ -17,18 +19,16 @@ struct MemberDetailView: View {
         "GradationColor_E": .colorE,
     ]
     
-    @EnvironmentObject var viewState: MemberViewModel
-    
     var body: some View {
         NavigationStack {
             VStack (alignment: .leading){
              
-                Text(viewState.selectMember!.name)
+                Text(viewModel.selectMember!.name)
                     .font(.system(size: 52))
                     .foregroundStyle(Color("white95"))
                     .bold()
                 
-                Text(viewState.selectMember!.realName)
+                Text(viewModel.selectMember!.realName)
                     .font(.system(size: 24))
                     .foregroundStyle(Color("white65"))
                     .bold()
@@ -43,13 +43,13 @@ struct MemberDetailView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .clipShape(Circle())
-                            .overlay(CircularProgressBar(parameter: viewState.selectMember!.friendship.getParameter()))
+                            .overlay(CircularProgressBar(parameter: viewModel.selectMember!.friendship.getParameter()))
                             .frame(maxHeight: 160)
                         
                         Button(action: {
                             withAnimation {
-                                viewState.showDetailView = false
-                                viewState.showEditView   = true
+                                viewModel.showDetailView = false
+                                viewModel.showEditView   = true
                             }
                         }, label: {
                             Image(systemName: "pencil.circle")
@@ -67,11 +67,11 @@ struct MemberDetailView: View {
                 Spacer()
                 
                 VStack(alignment: .leading) {
-                    Text("\(viewState.selectMember!.name)について")
+                    Text("\(viewModel.selectMember!.name)について")
                         .font(.title)
                         .foregroundColor(Color("white95"))
                     
-                    Text(viewState.selectMember!.about)
+                    Text(viewModel.selectMember!.about)
                         .foregroundStyle(Color("white65"))
                         .font(.caption)
                 }
@@ -80,7 +80,7 @@ struct MemberDetailView: View {
             }
             .padding()
             .frame(maxWidth: 320, maxHeight: 500)
-            .background(gradationColors[viewState.selectMember!.gradation]?.getColor())
+            .background(gradationColors[viewModel.selectMember!.gradation]?.getColor())
             .clipShape(
                 RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
             )

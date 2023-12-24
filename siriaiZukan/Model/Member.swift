@@ -17,6 +17,10 @@ struct Member: Identifiable {
     var friendship: Friendship
     var about: String
     
+    static func newMember(communityID: Community.ID) -> Member {
+        .init(communityID: communityID, name: "unknown", realName: "unknown", imagePath: "person.fill", gradation: "GradationColor_A", friendship: .init(0.0), about: "この人物について書きましょう！")
+    }
+    
     struct ID: Hashable {
         var uuid: UUID
         init(uuid: UUID = UUID()) {
@@ -25,25 +29,24 @@ struct Member: Identifiable {
     }
     
     struct Friendship {
-        public static let MAXIMUM: Float = 1.0
-        public static let MINIMUM: Float = 0.0
+        public static let MAXIMUM: CGFloat = 1.0
+        public static let MINIMUM: CGFloat = 0.0
         
-        private let parameter: Float
+        private let parameter: CGFloat
         
-        init(_ parameter: Float) {
-            Friendship.validation(parameter)
+        init(_ parameter: CGFloat) {
             self.parameter = parameter
         }
         
-        public func setParameter(_ parameter: Float) -> Friendship {
+        public func setParameter(_ parameter: CGFloat) -> Friendship {
             Friendship(parameter)
         }
         
-        public func getParameter() -> Float {
+        public func getParameter() -> CGFloat {
             self.parameter
         }
         
-        private static func validation(_ value: Float) {
+        private static func validation(_ value: CGFloat) {
             let safetyValue: Bool = (0.0 <= value) && (value <= 1.0)
             guard safetyValue else { fatalError("friendshipParameterの値が不正です。") }
         }

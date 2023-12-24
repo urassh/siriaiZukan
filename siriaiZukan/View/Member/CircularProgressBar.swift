@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CircularProgressBar: View {
-    let parameter: Float
+    let parameter: CGFloat
     
     var body: some View {
         ZStack {
@@ -18,7 +18,7 @@ struct CircularProgressBar: View {
                 .foregroundColor(.green)
                 .frame(width: 150, height: 150)
             Circle()
-                .trim(from: 0.0, to: min(CGFloat(parameter), 1.0))
+                .trim(from: 0.0, to: min(parameter, 1.0))
                 .stroke(style: StrokeStyle(lineWidth: 8.0, lineCap: .round, lineJoin: .round))
                 .foregroundColor(.green)
                 .frame(width: 150, height: 150)

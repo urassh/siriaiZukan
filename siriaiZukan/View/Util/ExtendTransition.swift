@@ -16,3 +16,15 @@ extension AnyTransition {
         )
     }
 }
+
+extension Image {
+    func memberIconModifier(member: Member) -> some View {
+        self
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .clipShape(Circle())
+            .overlay(CircularProgressBar(parameter: member.friendship.getParameter()))
+            .frame(maxHeight: 160)
+        
+    }
+}

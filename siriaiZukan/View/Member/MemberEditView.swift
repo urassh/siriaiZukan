@@ -17,11 +17,16 @@ struct MemberEditView: View {
         "GradationColor_E": .colorE,
     ]
     @EnvironmentObject var viewModel: MemberViewModel
+    @State private var newMember: Member?
+    private var editingMember: Member? {
+        viewModel.selectMember == nil ? newMember! : viewModel.selectMember
+    }
     
-    @State var name: String = ""
-    @State var realName: String = ""
-    @State var friendship: CGFloat = 0.0
-    @State var aboutText: String = ""
+    init() {
+        if let _ = viewModel.selectMember {
+            newMember = .newMember(communityID: viewModel.community.id)
+        }
+    }
     
     var body: some View {
         NavigationStack {
@@ -31,12 +36,7 @@ struct MemberEditView: View {
                 HStack {
                     Spacer()
                     
-                    Image(systemName: "person.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .clipShape(Circle())
-                        .overlay(CircularProgressBar(parameter: Float(friendship)))
-                        .frame(maxHeight: 160)
+                    MemberIcon(member: editingMember!)
                     
                     Spacer()
                 }
@@ -48,7 +48,17 @@ struct MemberEditView: View {
                         .font(.title3)
                         .foregroundStyle(Color("white95"))
                         .bold()
-                    TextField((viewModel.selectMember != nil) ? viewModel.selectMember!.name : name, text: $name)
+                    TextField("Enter Nickname", text: Binding(
+                        get: {
+                            editingMember!.name
+                        }, set: { newValue in
+                            if viewModel.selectMember == nil {
+                                newMember!.name = newValue
+                            } else {
+                                viewModel.selectMember?.name = newValue
+                            }
+                        }
+                    ))
                         .textFieldStyle(.roundedBorder)
                         .opacity(0.6)
                         .background(Color.clear)
@@ -63,7 +73,17 @@ struct MemberEditView: View {
                         .font(.title3)
                         .foregroundStyle(Color("white95"))
                         .bold()
-                    TextField((viewModel.selectMember != nil) ? viewModel.selectMember!.realName : realName, text: $realName)
+                    TextField("Enter Real name", text: Binding(
+                        get: {
+                            editingMember!.realName
+                        }, set: { newValue in
+                            if viewModel.selectMember == nil {
+                                newMember!.realName = newValue
+                            } else {
+                                viewModel.selectMember?.realName = newValue
+                            }
+                        }
+                    ))
                         .textFieldStyle(.roundedBorder)
                         .opacity(0.6)
                         .background(Color.clear)
@@ -79,21 +99,37 @@ struct MemberEditView: View {
                         .foregroundStyle(Color("white95"))
                         .bold()
                     
-                    Slider(value: $friendship, in: 0...1.0)
+                    Slider(value: Binding(get: {
+                        editingMember!.friendship.getParameter()
+                    }, set: { newValue in
+                        if viewModel.selectMember == nil {
+                            newMember!.friendship = .init(newValue)
+                        } else {
+                            viewModel.selectMember!.friendship = .init(newValue)
+                        }
+                    }), in: 0...1.0)
                         .tint(.green)
                 }
                 
                 Spacer()
                 
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("\((viewModel.selectMember != nil) ? viewModel.selectMember!.name : "名無し")について")
+                    Text("\(editingMember!.name)について")
                         .font(.title2)
                         .foregroundColor(Color("white95"))
                     
-                    TextEditor(text: $aboutText)
+                    TextEditor(text: Binding(get: {
+                        editingMember!.about
+                    }, set: { newValue in
+                        if viewModel.selectMember == nil {
+                            newMember!.about = newValue
+                        } else {
+                            viewModel.selectMember!.about = newValue
+                        }
+                    }))
                         .border(Color.gray, width: 1)
                         .overlay(alignment: .topLeading) {
-                            if aboutText.isEmpty {
+                            if editingMember!.about.isEmpty {
                                 Text("この人物についてや、あなたとのエピソードについて書きましょう")
                                     .allowsHitTesting(false)
                                     .foregroundColor(Color(uiColor: .placeholderText))
@@ -112,7 +148,7 @@ struct MemberEditView: View {
             .padding()
             .frame(maxWidth: 320, maxHeight: 500)
             .background(
-                (viewModel.selectMember != nil) ? gradationColors[viewModel.selectMember!.gradation]?.getColor() : GradationColor_A.colorA.getColor()
+                gradationColors[editingMember!.gradation]?.getColor()
                 
             )
             .clipShape(

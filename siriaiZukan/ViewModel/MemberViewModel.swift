@@ -41,6 +41,8 @@ class MemberViewModel: ObservableObject {
         if isActivate { return }
         isActivate = true
         
+        print("viewModel is disappeared")
+        
         MemberDatabase.entities().sink(receiveCompletion: { _ in
             //TODO
         }, receiveValue: { [weak self] members in
@@ -55,6 +57,7 @@ class MemberViewModel: ObservableObject {
     
     func deactivate() {
         guard isActivate else { return }
+        print("viewModel is disappeared")
         cancellable.removeAll()
     }
 }

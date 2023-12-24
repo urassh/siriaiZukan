@@ -9,7 +9,7 @@ import SwiftUI
 import MyLibrary
 
 struct CardView: View {
-    public let member: Member
+    private let member: Member
     private let gradationColors: [String: GradationColor] = [
         "GradationColor_A": .colorA,
         "GradationColor_B": .colorB,
@@ -18,18 +18,16 @@ struct CardView: View {
         "GradationColor_E": .colorE
     ]
     
+    init(member: Member) {
+        self.member = member
+    }
+    
     var body: some View {
         VStack (alignment: .center){
             Spacer()
             
             Image(systemName: "person.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipShape(Circle())
-                .overlay(
-                    Circle().strokeBorder(Color("white65"), lineWidth: 3)
-                )
-                .frame(maxHeight: 80)
+                .memberIconModifier(member: member)
             
             Spacer()
             

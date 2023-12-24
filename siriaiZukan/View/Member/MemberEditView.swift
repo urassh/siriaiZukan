@@ -16,7 +16,7 @@ struct MemberEditView: View {
         "GradationColor_D": .colorD,
         "GradationColor_E": .colorE,
     ]
-    @EnvironmentObject var viewState: MemberViewModel
+    @EnvironmentObject var viewModel: MemberViewModel
     
     @State var name: String = ""
     @State var realName: String = ""
@@ -48,7 +48,7 @@ struct MemberEditView: View {
                         .font(.title3)
                         .foregroundStyle(Color("white95"))
                         .bold()
-                    TextField((viewState.selectMember != nil) ? viewState.selectMember!.name : name, text: $name)
+                    TextField((viewModel.selectMember != nil) ? viewModel.selectMember!.name : name, text: $name)
                         .textFieldStyle(.roundedBorder)
                         .opacity(0.6)
                         .background(Color.clear)
@@ -63,7 +63,7 @@ struct MemberEditView: View {
                         .font(.title3)
                         .foregroundStyle(Color("white95"))
                         .bold()
-                    TextField((viewState.selectMember != nil) ? viewState.selectMember!.realName : realName, text: $realName)
+                    TextField((viewModel.selectMember != nil) ? viewModel.selectMember!.realName : realName, text: $realName)
                         .textFieldStyle(.roundedBorder)
                         .opacity(0.6)
                         .background(Color.clear)
@@ -86,7 +86,7 @@ struct MemberEditView: View {
                 Spacer()
                 
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("\((viewState.selectMember != nil) ? viewState.selectMember!.name : "名無し")について")
+                    Text("\((viewModel.selectMember != nil) ? viewModel.selectMember!.name : "名無し")について")
                         .font(.title2)
                         .foregroundColor(Color("white95"))
                     
@@ -112,7 +112,7 @@ struct MemberEditView: View {
             .padding()
             .frame(maxWidth: 320, maxHeight: 500)
             .background(
-                (viewState.selectMember != nil) ? gradationColors[viewState.selectMember!.gradation]?.getColor() : GradationColor_A.colorA.getColor()
+                (viewModel.selectMember != nil) ? gradationColors[viewModel.selectMember!.gradation]?.getColor() : GradationColor_A.colorA.getColor()
                 
             )
             .clipShape(

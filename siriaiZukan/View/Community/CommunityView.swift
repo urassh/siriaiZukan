@@ -13,9 +13,10 @@ struct CommunityView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                List(viewModel.communities) { commuunity in
+                List(viewModel.communities) { community in
                     NavigationLink(destination: {
-                        MemberView(viewModel: .init(community: commuunity))
+                        MemberView()
+                            .environmentObject(MemberViewModel(community: community))
                     }, label: {
                         Image(systemName: "person.fill")
                             .resizable()
@@ -23,7 +24,7 @@ struct CommunityView: View {
                             .frame(width: 50, height: 50)
                             .background(Color(uiColor: UIColor.lightGray))
                             .clipShape(RoundedRectangle(cornerSize: CGSize(width: 6, height: 6)))
-                        Text(commuunity.name)
+                        Text(community.name)
                             .font(.title2)
                             .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     })

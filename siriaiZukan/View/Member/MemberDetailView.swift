@@ -9,7 +9,7 @@ import SwiftUI
 import MyLibrary
 
 struct MemberDetailView: View {
-    @Binding var viewModel: MemberViewModel
+    @EnvironmentObject var viewModel: MemberViewModel
     
     private let gradationColors: [String: GradationColor] = [
         "GradationColor_A": .colorA,
